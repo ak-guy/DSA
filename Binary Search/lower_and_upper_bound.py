@@ -54,11 +54,11 @@ def upper_bound(array, target):
 target = int(input())
 array = [1,2,4,6,10,12,14]
 if lower_bound(array, target) == -1:
-    print(f"Lower Bound of target {target} is : Not Exist")
+    print(f"Lower Bound of target {target} is : Does Not Exist")
 else:
     print(f"Lower Bound of target {target} is :",array[lower_bound(array, target)])
 
 if upper_bound(array, target) == -1:
-    print(f"Upper Bound of target {target} is : Not Exist")
+    print(f"Upper Bound of target {target} is : Does Not Exist")
 else:
     print(f"Lower Bound of target {target} is :",array[upper_bound(array, target)])
