@@ -16,13 +16,13 @@ def modified_binary_search(arr, n):
                 l = m+1
             else:
                 r = m-1
-        else:
+        else: # from l to mid it is sorted
             if target <= arr[m] and arr[l] <= target:
                 r = m-1
             else:
                 l = m+1
-    return l
+    return l if arr[l] == target else -1
 
-for i in range(1, 11):
+for i in range(1, 12):
     target = i
     print(str(i) + " --> " + str(modified_binary_search(arr, n)))
