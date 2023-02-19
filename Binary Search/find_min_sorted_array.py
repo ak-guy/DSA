@@ -15,10 +15,7 @@ def find_min(arr, n):
         if arr[m] >= arr[l]: # for this case min could be at left(already took care of it) or to the left side of mid
             l = m+1
         else:
-            r = m-1# in case of no rotation
-    if arr[l] <= arr[r]:
-        return arr[0]
-
+            r = m-1
     return res
 
 print(find_min(arr, n))
