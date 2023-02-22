@@ -7,7 +7,6 @@ def find_occurence(arr, n, target):
         m = (l+r) // 2
 
         if target == arr[m]:
-            print(m) # debugging
             return True
 
         if arr[m] == arr[l] and arr[m] == arr[r]:
