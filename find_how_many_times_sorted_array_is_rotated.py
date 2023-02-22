@@ -23,7 +23,7 @@ def solve(arr, n):
     while l < r:
         m = (l+r) // 2
         if target == arr[m]:
-            return (m,res)
+            return m
         elif arr[m] <= arr[r]: # from mid to r it is sorted
             if target >= arr[m] and arr[r] >= target:
                 l = m+1
@@ -35,8 +35,25 @@ def solve(arr, n):
             else:
                 l = m+1
 
-    return (l,res)
+    return l
+
+def solve2(arr, n):
+    l, r = 0, n-1
+    while l <= r:
+        m = (l + r) // 2
+        prev = arr[m-1] if m > 0 else -1
+        next = arr[m+1] if m < n-1 else 1e10
+
+        if arr[m] <= next and arr[m] <= prev:
+            return m
+        elif arr[r] >= arr[m]:
+            r = m-1
+        else:
+            l = m+1
+    return l
+    pass
 
 arr = [1,2,3,4,5]
 n = len(arr)
 print(solve(arr, n))
+print(solve2(arr, n))
