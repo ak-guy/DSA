@@ -1,5 +1,5 @@
 # just return the smallest integer's index (Find minimum in rotated sorted array)
-def solve(arr, n):    
+def solve1(arr, n):    
     # finding the smallest number
     l, r = 0, n-1
     res = 1e10
@@ -34,7 +34,6 @@ def solve(arr, n):
                 r = m-1
             else:
                 l = m+1
-
     return l
 
 def solve2(arr, n):
@@ -51,9 +50,8 @@ def solve2(arr, n):
         else:
             l = m+1
     return l
-    pass
 
 arr = [1,2,3,4,5]
 n = len(arr)
-print(solve(arr, n))
+print(solve1(arr, n))
 print(solve2(arr, n))
