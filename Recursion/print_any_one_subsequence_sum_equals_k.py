@@ -8,8 +8,8 @@ def backtrack(i, res, curr, arr, n, summ):
     
     # pick
     curr.append(arr[i])
-    summ+=arr[i]
-    if backtrack(i+1, res, curr, arr, n, summ):return True
+    summ += arr[i]
+    if backtrack(i+1, res, curr, arr, n, summ): return True
 
     # not_pick
     curr.pop()
