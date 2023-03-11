@@ -21,4 +21,5 @@ def backtrack(i, res, curr, arr, n):
     return res
 
 arr = [1,1,1,2,2]
+arr.sort()
 print(backtrack(0, [], [], arr, len(arr)))
