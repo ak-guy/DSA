@@ -20,6 +20,21 @@ def backtrack(i, res, curr, arr, n):
     # return
     return res
 
+def backtrack2(i, curr, res, arr, n):
+    # we can 
+    res.append(curr.copy())
+    
+    for ind in range(i, n):
+        
+        if ind > i and arr[ind] == arr[ind-1]:
+            continue
+
+        curr.append(arr[ind])
+        backtrack2(ind+1, curr, res, arr, n)
+        curr.pop()
+
+    return res
+
 arr = [1,1,1,2,2]
 arr.sort()
-print(backtrack(0, [], [], arr, len(arr)))
+print(backtrack2(0, [], [], arr, len(arr)))

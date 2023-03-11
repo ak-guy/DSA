@@ -23,8 +23,36 @@ def backtrack(i, arr, curr, res, n, target, currsumm):
 
     return res
 
-arr = [4, 19, 30, 11]
-arr.sort()
-target = 30
+def backtrack2(i, arr, res, curr, n, target, currsum):
+    
+    if target == currsum:
+        res.append(curr.copy())
+        # print(curr)
+        return
+    
+    if i == n:
+        return
+        
+    # pick
+    curr.append(arr[i])
+    currsum += arr[i]
+    backtrack2(i+1, arr, res, curr, n, target, currsum)
 
-print(backtrack(0, arr, [], [], len(arr), target, 0))
+    # not_pick
+    while True:
+        if i < n-1 and arr[i] == arr[i+1]:
+            i += 1
+        else:
+            break
+    curr.pop()
+    currsum -= arr[i]
+    backtrack2(i+1, arr, res, curr, n, target, currsum)
+
+    # return
+    return res
+
+arr = [10,1,2,7,6,1,5]
+arr.sort()
+target = 8
+
+print(backtrack2(0, arr, [], [], len(arr), target, 0))
