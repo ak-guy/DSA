@@ -35,7 +35,7 @@ def solveSudoku(board):
                             return True
                         else:
                             board[r][c] = '.'
-                # we will return false if we tried all (1 -> 10) numbers and none of it fits
+                # we will return false if we tried all (1 -> 10) numbers and none of it results in satisfying all three sudoku condition
                 return False
 
     return True
