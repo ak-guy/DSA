@@ -21,7 +21,7 @@ def backtrack(i, res, curr, arr, n):
     return res
 
 def backtrack2(i, curr, res, arr, n):
-    # we can 
+    # we can directly add curr to res because we will be making recursion call only when we get unique subset
     res.append(curr.copy())
     
     for ind in range(i, n):
