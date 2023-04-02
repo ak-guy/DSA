@@ -30,7 +30,7 @@ def solveSudoku(board):
                     if is_valid(board, r, c, i):
                         board[r][c] = str(i)
 
-                        # if we found a solution we return true else we backtrack...or in other words we make board[r][c] = '.'
+                        # if we found a solution we return true else we backtrack and make board[r][c] = '.'
                         if solveSudoku(board) == True:
                             return True
                         else:
