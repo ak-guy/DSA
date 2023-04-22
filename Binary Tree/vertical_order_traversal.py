@@ -28,8 +28,8 @@ class Solution:
         res = []
         for i in range(minn_level, maxx_level+1):
             dummy = []
-            for level in ans[str(i)]:
-                dummy.extend(ans[str(i)][level])
+            for col in ans[str(i)]:
+                dummy.extend(ans[str(i)][col])
             res.append(dummy)
             
         return res
