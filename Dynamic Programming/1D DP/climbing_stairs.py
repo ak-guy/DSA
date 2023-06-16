@@ -18,7 +18,7 @@ class Solution:
         val = solve(0) % mod
         return val
     
-# # Method - 2 (Recursion + Memoization)
+# # Method - 2 (Recursion + Memoization)(bottom up)
 class Solution:
     #Function to count number of ways to reach the nth stair.
     def countWays(self,n):
@@ -43,7 +43,7 @@ class Solution:
         val = solve(0) % mod
         return val
 
-# # Method - 3 (Tabulation)
+# # Method - 3 (Tabulation)(bottom up)
 class Solution:
     #Function to count number of ways to reach the nth stair.
     def countWays(self,n):

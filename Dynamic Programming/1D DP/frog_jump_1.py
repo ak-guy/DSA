@@ -4,17 +4,17 @@ class Solution:
         # Code here
         
         def f(i):
-            if i == n-1:
+            if i == 0:
                 return 0
             
-            step1 = f(i+1) + abs(h[i]-h[i+1])
+            step1 = f(i-1) + abs(h[i]-h[i-1])
             step2 = 1e7
-            if i < n-2:
-                step2 = f(i+2) + abs(h[i]-h[i+2])
+            if i > 1:
+                step2 = f(i-2) + abs(h[i]-h[i-2])
 
             return min(step1, step2)
             
-        return f(0)
+        return f(n-1)
     
 
 # # Method 2 (Recurion + Memoization)(top - down)
@@ -77,4 +77,4 @@ class Solution:
             prev2 = prev1
             prev1 = curr
         
-        return prev1
+        return prev1 # or curr , anything we can return
