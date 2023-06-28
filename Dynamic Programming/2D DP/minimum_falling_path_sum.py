@@ -1,112 +1,92 @@
-# # Method - 1 (Recursion)
+# # Method - 1 (Recursion + Memoization)
 class Solution:
-	def minimumCostPath(self, grid):
-		n = len(grid)
-		res = 10**9
-		def f(r,c):
-			if r==0 and c==0:
-				return grid[0][0]
-				
-			if r<0 or c<0:
-				return 10**7
-			
-# 			coor = [[-1,0], [0,-1]]
-# 			for i in coor:
-# 			    row = r+i[0]
-# 			    col = c+i[1]
-# 			    total = f(row,col) + grid[r][c]
-# 			    res = min(total, res)
-
-			up = f(r-1,c) + grid[r][c]
-			left = f(r, c-1) + grid[r][c]
-			
-			return min(up, left)
-			
-		return f(n-1, n-1)
-	
-# # Method - 2 (Recursion + Memoization)
-class Solution:
-	def minimumCostPath(self, grid):
-		n = len(grid)
-		res = 10**9
-		dp = [[-1 for c in range(n)] for r in range(n)]
-		def f(r,c):
-		#  nonlocal res
-			if dp[r][c] != -1:
-				return dp[r][c]
-				
-			if r==0 and c==0:
-				return grid[0][0]
-				
-			if r<0 or c<0:
-				return 10**7
-			
-# 			coor = [[-1,0], [0,-1], [0,1]]
-# 			for i in coor:
-# 			    row = r+i[0]
-# 			    col = c+i[1]
-# 			 #   print(row, col)
-# 			    total = f(row,col) + grid[r][c]
-# 			    res = min(total, res)
-
-			up = f(r-1,c) + grid[r][c]
-			left = f(r, c-1) + grid[r][c]
-			
-			dp[r][c] = min(up, left)
-			return dp[r][c]
-			
-		return f(n-1, n-1)
-	
-# # Method - 3 (DP)
-class Solution:
-    def minimumCostPath(self, grid):
-        n = len(grid)
-        res = 10**9
-        dp = [[-1 for c in range(n)] for r in range(n)]
-        
-        for r in range(n):
-            for c in range(n):
-                if r ==0 and c == 0:
-                    dp[r][c] = grid[0][0]
-                    continue
+    def maximumPath(self, n, m):
+        res = 0
+        dp = [[-1 for i in range(n)] for j in range(n)]
+        def f(r,c):
+            if c>=n or c<0:
+                return -(10**5)
                 
-                up = 10**5
-                if r>0:
-                    up = dp[r-1][c] + grid[r][c]
-                    
-                left = 10**5
-                if c>0:
-                    left = dp[r][c-1] + grid[r][c]
+            if dp[r][c] != -1:
+                return dp[r][c]
                 
-                dp[r][c] = min(up, left)
+            if r == 0:
+                return m[r][c]             
+            
+            up = f(r-1,c) + m[r][c]
+            left = f(r-1,c-1) + m[r][c]
+            right = f(r-1,c+1) + m[r][c]
+
+            dp[r][c] = max(up, max(left, right))
+            return dp[r][c]
         
-        return dp[n-1][n-1]
+        for i in range(n):
+            total = f(n-1,i)
+            res = max(res, total)
+        
+        return res
     
-# # Method - 4 (Space Optimization)
+# # Method - 2 (DP)
 class Solution:
-    def minimumCostPath(self, grid):
-        n = len(grid)
-        res = 10**9
-        prev = [-1 for i in range(n)]
+    def maximumPath(self, n, m):
+        res = 0
+        dp = [[-1 for i in range(n)] for j in range(n)]
         
-        # dp[0][0] = grid[0][0]
-        
-        for r in range(n):
-            curr = [-1 for i in range(n)]
+        # base case
+        for i in range(n):
+            dp[0][i] = m[0][i]
+            
+        # for r == 0, we have already set values in dp, so we will start from r==1
+        for r in range(1,n):
             for c in range(n):
-                if r ==0 and c == 0:
-                    curr[c] = grid[0][0]
-                    continue
+                up = dp[r-1][c] + m[r][c]
                 
-                up = 10**5
-                if r>0:
-                    up = prev[c] + grid[r][c]
-                    
-                left = 10**5
+                left = m[r][c]
                 if c>0:
-                    left = curr[c-1] + grid[r][c]
+                    left += dp[r-1][c-1]
+                    
                 
-                curr[c] = min(up, left)
+                right = m[r][c]
+                if c<n-1:
+                    right += dp[r-1][c+1]
+                    
+                dp[r][c] = max(up, max(left, right))
+        
+        # now we have filled our dp, so from our last row we need to pick largest value
+        for i in range(n):
+            total = dp[n-1][i]
+            res = max(res, total)
+        
+        return res
+    
+# # Method - 3 (Space Optimization)
+class Solution:
+    def maximumPath(self, n, m):
+        res = 0
+        
+        prev = [0] * n
+        for i in range(n):
+            prev[i] = m[0][i]
+        
+        for r in range(1,n):
+            curr = [0] * n
+            for c in range(n):
+                up = prev[c] + m[r][c]
+                
+                left = m[r][c]
+                if c>0:
+                    left += prev[c-1]
+                    
+                right = m[r][c]
+                if c<n-1:
+                    right += prev[c+1]
+                    
+                curr[c] = max(up, max(left, right))
+                
             prev = curr
         
-        return prev[n-1]
+        for i in range(n):
+            total = prev[i]
+            res = max(res, total)
+        
+        return res
