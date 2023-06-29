@@ -3,6 +3,11 @@ class Solution:
     def solve(self, n, m, grid):
         dp = [[[-1 for i in range(m)] for j in range(m)] for k in range(n)]
         
+        '''
+        we will assume the position of two robots as the starting point and then move accordingly
+        also fuction parameter will be the location of robot (r,c1) and (r,c2), we will consider simultaneous 
+        movement hence need only one parameter for row
+        '''
         def f(r, c1, c2):
             # edge case (going out of bound)    
             if c1<0 or c2<0 or c1>m-1 or c2>m-1:
@@ -19,6 +24,10 @@ class Solution:
                 return dp[r][c1][c2]
                 
             res = -(10**5)
+            '''
+            there can be nine combinations of movement if both robots have 3 option to move, so we will run 
+            a double for loop and get required values
+            '''
             for col1 in range(3):
                 for col2 in range(3):
                     if c1 == c2:
