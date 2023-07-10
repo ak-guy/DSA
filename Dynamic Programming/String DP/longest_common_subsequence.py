@@ -44,7 +44,7 @@ class Solution:
                     not_match = max(dp[i][j-1], dp[i-1][j])
 
                 dp[i][j] = match+not_match
-        print(*dp, sep="\n")
+
         return dp[n][m]
     
 # # Method - 3 (Space Optimization)
@@ -54,7 +54,6 @@ class Solution:
         m = len(text2)
 
         prev = [0 for i in range(m+1)]
-        
 
         # have already initialized the base case while creating dp array
 
@@ -70,9 +69,5 @@ class Solution:
 
                 curr[j] = match+not_match
             prev = curr
-            
-        print(curr)
-        return prev[m]
 
-obj = Solution()
-print(obj.longestCommonSubsequence('abcba', 'abcbcba'))
+        return prev[m]
