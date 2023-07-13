@@ -29,10 +29,20 @@ class Solution:
                 r -= 1
                 c -= 1
             elif dp[r-1][c] > dp[r][c-1]:
+                s += text1[r-1]
                 r -= 1
             else:
+                s += text2[c-1]
                 c -= 1
+
+        while r>0:
+            s += text1[r-1]
+            r -= 1
+        while c>0:
+            s += text2[c-1]
+            c -= 1
+
         print(s[::-1])
 
 obj = Solution()
-obj.longestCommonSubsequence('abcbcba', 'abcba')
+obj.longestCommonSubsequence('brute', 'groot')
