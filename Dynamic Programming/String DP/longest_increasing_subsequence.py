@@ -54,5 +54,46 @@ class Solution:
         return dp[0][0]
 
 # # Method - 3 (Binary Search)
+class Solution:
+    def lengthOfLIS(self, arr) -> int:
+        res = []
+        res.append(arr[0])
+        count = 1
+        n = len(arr)
+        
+        for i in range(1, n):
+            if arr[i] > res[count-1]:
+                res.append(arr[i])
+                count += 1
+            else:
+                ind = self.upper_bound(res, arr[i])
+                if ind == -1:
+                    ind = 0
+                res[ind] = arr[i]
+                
+        return count
 
+    def upper_bound(self, array, target):
 
+        left = 0
+        right = len(array) - 1
+    
+        if target > array[right]:
+            return -1
+    
+        while left < right:
+            mid = (left + right) // 2
+    
+            # In this case only two element will remain
+            if left == mid: 
+                return left if array[left] >= target else left+1
+    
+            # Usual binary search but we know if target is greater than mid-value of array then for sure result lies to the right of mid( excluding itself)
+            if target == array[mid]:
+                return mid
+            elif target > array[mid]:
+                left = mid + 1
+            else:
+                right = mid
+            
+        return left
