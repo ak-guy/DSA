@@ -1,3 +1,18 @@
+# # Method - 0 (brute force running two for loops)
+class Solution:
+    def lengthOfLIS(self, arr) -> int:
+        n = len(arr)
+        count = 1
+
+        dp = [1 for i in range(n)]
+        for i in range(n):
+            for j in range(0,i):
+                if arr[i] > arr[j] and 1+dp[j] > dp[i]:
+                    dp[i] = max(dp[i],1+dp[j])
+                    count = max(count, dp[i])
+                    
+        return count
+
 # # Method - 1 (Recursion + Memoization)
 class Solution:
     def lengthOfLIS(self, nums) -> int:
