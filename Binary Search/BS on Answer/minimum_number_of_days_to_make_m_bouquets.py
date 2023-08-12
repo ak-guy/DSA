@@ -14,6 +14,9 @@ class Solution:
         return m==0
 
     def minDays(self, bd, m: int, k: int) -> int:
+        if m * k > len(bd):
+            return -1
+            
         l, r = min(bd), max(bd)
         res = 10000000009 # needed to exceed 10**9 limit
         while l<=r:
