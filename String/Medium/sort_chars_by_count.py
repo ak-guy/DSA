@@ -1,7 +1,7 @@
 import heapq
 class Solution:
     def frequencySort(self, s: str) -> str:
-        count_array = [[0,i] for i in range(62)] # to maintain count of all 52 chars
+        count_array = [[0,i] for i in range(62)] # to maintain count of all 62 chars
         unique_elem = set()
         pq = []
         # A(0) to Z(25) then a(26) to z(51) then 0(52) to 9(61)
