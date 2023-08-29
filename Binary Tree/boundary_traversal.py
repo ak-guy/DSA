@@ -1,5 +1,5 @@
 # # Method - 1 (Using recursion) passing 33/94 cases (giving segmenatation fault error) -> but solution is correct
-
+# # use var1 = root, var2 = root instead of using deepcopy
 import copy, sys
 sys.setrecursionlimit(1000000)
 
@@ -11,8 +11,8 @@ class Solution:
         if not root.left and not root.right:
             return res
         
-        var1 = copy.deepcopy(root)
-        var2 = copy.deepcopy(root)
+        var1 = root # dont use copy.deepcopy(root)
+        var2 = root # dont use copy.deepcopy(root)
         
         def left_tree(root):
             if not root or (not root.left and not root.right):
@@ -76,8 +76,8 @@ class Solution:
         if not root.left and not root.right:
             return res
         
-        var1 = copy.deepcopy(root)
-        var2 = copy.deepcopy(root)
+        var1 = root # dont use copy.deepcopy(root)
+        var2 = root # dont use copy.deepcopy(root)
         
         if var1.left:
             var1 = var1.left
