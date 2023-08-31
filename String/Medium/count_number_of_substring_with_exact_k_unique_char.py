@@ -23,6 +23,9 @@ class Solution:
         return res
         
     def substrCount (self,s, k):
+        '''to get substrings with k unique chars we can find all substring with atmost k chars and 
+           substract it with count of all substring with k-1 chars
+        '''
         return self.getAtmostKUniqueCharSubstring(s, k) - self.getAtmostKUniqueCharSubstring(s, k-1)
 '''
 s = "abcd"
@@ -30,9 +33,4 @@ res = 0
 for i in range(len(s)):
     res += i+1
 print(res)
-''' 
-s = "abcd"
-res = 0
-for i in range(len(s)):
-    res += i+1
-print(res)
+'''
