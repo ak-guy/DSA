@@ -6,7 +6,9 @@ class Solution:
             if pre_exp[char].isalnum():
                 st.append(pre_exp[char])
             else:
-                res = str('(' + st.pop() + pre_exp[char] + st.pop() + ')')
+                first = st.pop()
+                second = st.pop()
+                res = str('(' + first + pre_exp[char] + second + ')')
                 st.append(res)
         
         final = st.pop()
