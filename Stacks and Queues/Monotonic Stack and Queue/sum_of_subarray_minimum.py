@@ -26,7 +26,12 @@ class Solution:
             if st:
                 nle[i] = st[-1][1] - i
             st.append([arr[i],i])
-            
+        
+        '''
+        suppose for arr [2,9,7,8,3,4,6,1], we have to count how many subarray are there with minimum element
+        as 3. so previous less element is 2(with distance 4) and next less element is 1(with distance 3)
+        then total number of such subarray will be 4 * 3 and total contribution to result will be (4 * 3 * 3)
+        '''
         res = 0
         for i in range(n):
             res += ((ple[i] * nle[i] * arr[i]) % mod)
