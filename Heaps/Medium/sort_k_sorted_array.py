@@ -2,7 +2,12 @@
 
 import heapq
 class Solution:
-    #Function to return the sorted array.
+    '''
+    algo: maintain a heap of length of k, once it reaches length k+1, pop from the heap and add it to res
+    as every element can be k distance away from its original position, so this will work (in O(NlogK) TC)
+    Now once loop is complete, some elements will still be remaining in heap, just pop from it one by one
+    and append it to res. 
+    '''
     def nearlySorted(self,a,n,k): # TC -> O(Nlogk) and SC -> O(N + k + 1)
         hp = []
         res = []
