@@ -15,6 +15,10 @@ class Solution:
         return arr
     
 # # Method - 2 (Using heaps)
+'''
+algo: store (val, ind) in minheap, pop one by one then go to ind and give it rank, and to rank should be
+      increased only if prev_val is not equal to current popped value
+'''
 import heapq
 class Solution:
     def replaceWithRank(self, N, arr):
