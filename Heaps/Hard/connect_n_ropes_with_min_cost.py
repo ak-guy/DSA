@@ -1,6 +1,8 @@
 import heapq
 class Solution:
-    #Function to return the minimum cost of connecting the ropes.
+    '''
+    pretty straight forward, if we want to keep the cost low then we have pick smaller numbers
+    '''
     def minCost(self,arr,n) :
         heapq.heapify(arr)
         res = 0
