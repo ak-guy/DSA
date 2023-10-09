@@ -1,4 +1,11 @@
 class Solution:
+    '''
+    eg ~> A*(B+C)/D  ------>   ABC+*D/
+    any alphanum we can directly add to res, but we need to handle operators and brackets using mon inc stack
+    
+    we will create a stack in which we will only store precedence_mapping.keys() also it will be monotonically
+    increasing -> -+/*^
+    '''
     def InfixtoPostfix(self, exp):
         res = ""
         st = []
