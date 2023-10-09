@@ -1,7 +1,11 @@
 class Solution:
+    '''
+    make a stack, traverse in reverse, will store res in stack so final ans will be st.pop()
+    if we encounter alnum then directly append it to stack else pop two items and append the
+    appropriate result in stack
+    '''
     def preToInfix(self, pre_exp):
         st = []
-        
         for char in range(len(pre_exp)-1, -1, -1):
             if pre_exp[char].isalnum():
                 st.append(pre_exp[char])
