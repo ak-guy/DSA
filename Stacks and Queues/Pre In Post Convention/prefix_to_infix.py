@@ -1,8 +1,8 @@
 class Solution:
     '''
     make a stack, traverse in reverse, will store res in stack so final ans will be st.pop()
-    if we encounter alnum then directly append it to stack else pop two items and append the
-    appropriate result in stack
+    if we encounter alnum then directly append it to stack 
+    else if operator is encountered then st.append(str(  '(' +first+operator+second+ ')'  ))
     '''
     def preToInfix(self, pre_exp):
         st = []
