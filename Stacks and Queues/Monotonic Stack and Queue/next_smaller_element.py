@@ -1,8 +1,9 @@
 # # Help Classmate (GFG)
 class Solution:
+    '''
+    similar to next greater element, only difference is we will maintain a mono dec stack here
+    '''
     def help_classmate(self, nums2, n):
-        # Your code goes here
-        # Return the list
         nums1 = [-1 for i in range(n)] 
         st = [] # this will be our monotonically decreasing stack, st[-1] > st[-2]
         
