@@ -1,5 +1,10 @@
 from typing import List
 class Solution:
+    '''
+    in this basically we have to find for every index that how many subarray will be there in which the
+    value at the index will be minimum, and this info we can find by knowing the previous least element
+    and next least element
+    '''
     def sumSubarrayMins(self, arr: List[int]) -> int:
         '''
         think of array as [-1] + arr + [-1]

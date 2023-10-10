@@ -1,5 +1,8 @@
 # # Brute Force
 class Solution: # TC -> O(N*queries) and SC -> O(queries)
+    '''
+    no use of stack is required, just run normal loop
+    '''
     def count_NGEs(self, N, arr, queries, indices):
         ans = [0 for i in range(queries)]
         for i in range(queries):
