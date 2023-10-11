@@ -1,4 +1,8 @@
 class Solution:
+    '''
+    point to note is that only negative can destroy positive if magnitude of negative is greater or
+    equal to magnitude of positive
+    '''
     def asteroidCollision(self, n, arr):
         st = []
         for i in range(n):
