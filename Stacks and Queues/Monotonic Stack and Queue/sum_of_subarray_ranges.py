@@ -2,6 +2,10 @@
 
 from typing import List
 class Solution:
+    '''
+    this problem is similar to sum of subarray minimum, only difference is here we also have
+    to find sum of subarray maximum that we can easily do with monotonic dec stack
+    '''
     def sumSubarrayMins(self, arr: List[int]) -> int:
         n = len(arr)
         ple = [i+1 for i in range(n)]
