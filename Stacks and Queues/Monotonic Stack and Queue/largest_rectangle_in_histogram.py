@@ -1,6 +1,11 @@
 # # Method - 1 (inspired by sum of subarray minimum)
 from typing import List
 class Solution:
+    '''
+    just need to know what is the previous smaller building height and what is next smaller building
+    height for any building, rest calculation of largest rectangle can be done by
+    max(res , building[i] * (ple[i] + nle[i] - 1))
+    '''
     def largestRectangleArea(self, arr: List[int]) -> int:
         n = len(arr)
         ple = [i+1 for i in range(n)] # previous less element
