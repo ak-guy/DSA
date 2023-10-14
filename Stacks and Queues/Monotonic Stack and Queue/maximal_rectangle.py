@@ -1,8 +1,10 @@
-'''
-taking inspiration from largest rectangle in histogram
-'''
 from typing import List
 class Solution:
+    '''
+    similar to largest rectangle in histogram, for every row we need to make an array with
+    appropriate building height and pass it to self.largestRectangleArea function which 
+    will return the largest rectangle possible for that array
+    '''
     def largestRectangleArea(self, arr: List[int]) -> int:
         n = len(arr)
         ple = [i+1 for i in range(n)] # previous less element
