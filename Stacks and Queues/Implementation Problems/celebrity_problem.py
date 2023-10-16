@@ -34,6 +34,10 @@ class Solution:
 class Solution:
     '''
     a celebrity will have entire row elements to be 0 and all M[r][constant_column] = 1
+
+    first we will find possible celeb by creating a stack with all the row_index, then
+    poping two elements and checking if they know each other, hence only single row_index will be left,
+    then we can check for above condition to know if that row_index is celeb
     '''
     def celebrity(self, M, n):
         st = []
