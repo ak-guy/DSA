@@ -1,6 +1,12 @@
 from collections import deque
 from typing import List
 class Solution:
+    '''
+    this problem can be solved using deque, in that we will store [val, ind] in dec order
+    First we input first k values in deque such that d[0] will be max
+    later run a loop and popright from deque such that arr[i] >= d[-1][0]
+    and popleft such that i - d[0][1] should be less than k
+    '''
     def maxSlidingWindow(self, arr: List[int], k: int) -> List[int]:
         n = len(arr)
         res = []
@@ -12,7 +18,6 @@ class Solution:
                 d.pop()
             d.append(i)
         res.append(arr[d[0]])
-        print(d)
 
         # for remaining (n - k) elements
         for i in range(k, n):
