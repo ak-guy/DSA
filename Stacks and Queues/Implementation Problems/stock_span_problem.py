@@ -1,5 +1,8 @@
 class StockSpanner:
-
+    '''
+    we will create a monotonic decreasing stack which will have [val, count]
+    count -> no of consecutive days for which it was increasing
+    '''
     def __init__(self):
         self.st = []
 
