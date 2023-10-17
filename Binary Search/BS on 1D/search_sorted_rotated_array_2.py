@@ -1,3 +1,10 @@
+'''
+same as search in sorted rotated array 1 but we need to handle duplicate values,
+duplicate will create issue when we cannot know which side is sorted we can take example of
+arr =[1,1,1,1,1,1,1,1,1,1,1,2,1,1,1]
+in this, for first iteration we cannot know which side is sorted, so to handle such case
+we can checking if arr[l] == arr[m] and arr[m] == arr[r] then we will move l+=1 and r-=1
+'''
 arr = [1,1,1,1,1,1,1,1,1,1,1,2,1,1,1]
 target = 2
 n = len(arr)
