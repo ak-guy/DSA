@@ -1,3 +1,6 @@
+'''
+can be solved using either lower bound or upper bound of target value
+'''
 def searchInsertK(self, Arr, N, k):
     
         # finding upper bound will be all
