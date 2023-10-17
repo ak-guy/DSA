@@ -1,3 +1,9 @@
+'''
+facts:
+1. at any point if we found out arr[l] <= arr[r] then res will be min(res, arr[l])
+2. if above cond does not satisfy then that means array is not in sorted order
+3. now since array is not in sorted order then if arr[l] <= arr[m] then it would mean smallest elem is in right half
+'''
 arr = [4,5,6,7,0,1,2]
 n = len(arr)
 def find_min(arr, n):
