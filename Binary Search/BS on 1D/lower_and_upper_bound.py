@@ -9,7 +9,7 @@ def lower_bound(array, target):
     while left < right:
         mid = (left + right) // 2
 
-        # In this case only two element will remain
+        # In this case only two element will remain, take this example -> 1,2,8,10,11,12,19 and target = 5
         if left == mid: 
             return left+1 if array[left+1] <= target else left
 
