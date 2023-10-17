@@ -1,4 +1,6 @@
 '''
+in this problem we cannot just eleminate some portion of array and then reach the res
+we need to keep a variable in which we will store the result
 facts:
 1. at any point if we found out arr[l] <= arr[r] then res will be min(res, arr[l])
 2. if above cond does not satisfy then that means array is not in sorted order
