@@ -1,5 +1,8 @@
+'''
+idea is to run a loop to find the index of first occurence, then run another loop
+to find the index of last occurence
+'''
 def find(arr,n,target):
-    
     # to find starting index
     left = 0
     right = n-1
