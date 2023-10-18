@@ -1,3 +1,7 @@
+'''
+search space will be 1 till x
+can apply BS and check if arr[mid] * arr[mid] <= x or not
+'''
 class Solution:
     def floorSqrt(self, x):
         if x == 0:
