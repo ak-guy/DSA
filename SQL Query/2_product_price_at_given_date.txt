@@ -1,0 +1,24 @@
+'''
+we can break this problem in two parts
+first we will find all the distinct product_id whose change_date is greater than 2019-08-16
+then we will find all the distinct product_id whose recent change_date is less than 2019-08-17
+'''
+
+
+select
+distinct product_id, 10 as price
+from products
+group by product_id
+having (min(change_date) > '2019-08-16')
+
+union
+
+select p.product_id, new_price
+from products p
+where (p.product_id, p.change_date) in
+(
+  select product_id, max(change_date)
+  from products
+  where change_date <= '2019-08-16'
+  group by product_id
+)
