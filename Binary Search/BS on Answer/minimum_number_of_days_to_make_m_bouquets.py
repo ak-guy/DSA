@@ -1,5 +1,15 @@
+'''
+search range will be from min(bd) to max(bd)
+we will apply BS on this range, then process the mid value in such a way that
+it will tell(return Bool) if we can get m number of bouquets in mid(days)
+'''
 class Solution:
-    def getPossibility(self, arr, num, m, k):
+    def getPossibility(self, arr, num: int, m: int, k: int):
+        '''
+        type: int, num => number of days in which we need to make m bouquets
+        type: int, m => no of bouquets
+        type: int, k => no of adjacent flowers
+        '''
         n = len(arr)
         rem = k
         for i in range(n):
