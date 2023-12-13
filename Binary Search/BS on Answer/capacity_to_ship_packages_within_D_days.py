@@ -1,3 +1,7 @@
+'''
+apply BS on range(1 to sum(arr)) get mid value then check if we can ship that amount under d days
+if True then search for lesser value else check for greater
+'''
 class Solution:
     def getPossibility(self, w, mid, d, n):
         rem_days = mid
