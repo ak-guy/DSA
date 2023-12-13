@@ -1,3 +1,7 @@
+'''
+we can apply BS on range 1 to max(nums) and then check if we divide every element from array to that number
+does it cross threshold or not, if does not then we search for greater number else smaller number
+'''
 import math
 class Solution:
     def getPossibility(self, nums, divisor, th):
