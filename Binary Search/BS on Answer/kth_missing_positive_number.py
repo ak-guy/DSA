@@ -20,9 +20,9 @@ class Solution:
         l, r = 0, len(arr)-1
         while l <= r:
             mid = (l+r) // 2
-            missing = arr[mid] - mid - 1
+            number_of_missing_integer = arr[mid] - (mid + 1)
 
-            if missing < k:
+            if number_of_missing_integer < k:
                 l = mid + 1
             else:
                 r = mid - 1
