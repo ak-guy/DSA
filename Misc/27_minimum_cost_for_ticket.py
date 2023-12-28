@@ -1,3 +1,5 @@
+# Same logic as Frog Jump 1
+
 # # Method - 1 (Recursion + Memoization)
 from typing import List
 class Solution:
