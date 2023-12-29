@@ -25,3 +25,24 @@ class Solution:
     
 
 # # Optimized Approach
+class Solution:
+    '''
+    Algo : we will maintain a window of some size if k >= 0, otherwise shrink the window size by 1 
+    '''
+    def longestOnes(self, nums: List[int], k: int) -> int:
+        start = 0
+        for end in range(len(nums)):
+            # if we encounter 0 then decrease k
+            if nums[end] == 0:
+                k -= 1
+            
+            # if we dont have enough k
+            if k < 0:
+                # if our nums[start] becomes zero then we inc our k count because we will be start too by 1 so this nums[start] will fall out of current window
+                if nums[start] == 0:
+                    k += 1
+
+                # shrink the window
+                start += 1
+        
+        return end - start + 1
