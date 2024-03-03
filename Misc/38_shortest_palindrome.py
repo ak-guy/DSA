@@ -49,21 +49,29 @@ class Solution:
             if is_already_palindrome:
                 break
             print(
-                f'for index {ind}, odd_res = {odd_res} and even_res = {even_res}')
+                f'for index {ind}, odd_res = {odd_res} and even_res = {even_res}',
+            )
             if odd_res == '' and even_res == '':
                 continue
             elif odd_res != '' and even_res == '':
                 res = odd_res if res == '' or (
-                    res != '' and len(res) > len(odd_res)) else res
+                    res != '' and len(res) > len(odd_res)
+                ) else res
             elif even_res != '' and odd_res == '':
                 res = even_res if res == '' or (
-                    res != '' and len(res) > len(even_res)) else res
+                    res != '' and len(res) > len(even_res)
+                ) else res
             else:
                 if len(odd_res) > len(even_res):
                     res = even_res if res == '' or (
-                        res != '' and len(res) > len(even_res)) else res
+                        res != '' and len(res) > len(even_res)
+                    ) else res
                 else:
                     res = odd_res if res == '' or (
-                        res != '' and len(res) > len(odd_res)) else res
+                        res != '' and len(res) > len(odd_res)
+                    ) else res
             print(f'final res is {res}')
         return res[::-1] + s
+
+
+# # Using KMP Algo
