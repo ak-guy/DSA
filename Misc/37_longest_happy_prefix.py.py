@@ -5,7 +5,8 @@ from __future__ import annotations
 class Solution:
     def longestPrefix(self, s: str) -> str:
         n = len(s)
-        lps = [0 for i in range(n)]  # longest  prefix suffix
+        # longest prefix suffix, for an index i it will store max length of matching suffix and prefix till that index
+        lps = [0 for i in range(n)]
 
         prev_lps_value, ind = 0, 1
         while (ind < n):
@@ -15,12 +16,15 @@ class Solution:
                 ind += 1
             else:
                 if prev_lps_value == 0:
+                    lps[ind] = 0
                     ind += 1
                 else:
                     prev_lps_value = lps[prev_lps_value-1]
-        print(lps)
+        # print(lps)
         return s[n-lps[-1]:]
 
 
-obj = Solution()
-obj.longestPrefix(s='ababab')
+'''
+take example of 'acccbaaacccbaac'
+its lps = [0,0,0,0,0,1,1,1,2,3,4,5,6,7,2]
+'''

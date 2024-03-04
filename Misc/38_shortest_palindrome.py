@@ -75,3 +75,26 @@ class Solution:
 
 
 # # Using KMP Algo
+class Solution:
+    def shortestPalindrome(self, s: str) -> str:
+        # adding @ in bw to force the match in reverse start from its first index
+        new_s = s + '@' + s[::-1]
+        n = len(new_s)
+        lps = [0 for i in range(n)]
+
+        prev_lps, starting_index = 0, 1
+        while starting_index < n:
+            if new_s[starting_index] == new_s[prev_lps]:
+                lps[starting_index] = prev_lps + 1
+                prev_lps += 1
+                starting_index += 1
+            else:
+                if prev_lps == 0:
+                    starting_index += 1
+                else:
+                    prev_lps = lps[prev_lps-1]
+
+        length_of_largest_palindrome_starting_from_index_0 = lps[-1]
+        rev_str = s[length_of_largest_palindrome_starting_from_index_0:]
+        rev_str = rev_str[::-1]
+        return rev_str + s
