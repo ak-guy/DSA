@@ -28,3 +28,5 @@ class Solution:
 take example of 'acccbaaacccbaac'
 its lps = [0,0,0,0,0,1,1,1,2,3,4,5,6,7,2]
 '''
+# obj = Solution()
+# print(obj.longestPrefix(s='bobcat')) # [0, 0, 1, 0, 0, 0]
