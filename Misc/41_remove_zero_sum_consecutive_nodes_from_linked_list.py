@@ -42,8 +42,8 @@ class Solution:
             if arr_repr[ind] in test_set:
                 poping_ind = len(res)-1
                 while poping_ind >=0 and arr_repr[ind] != res[poping_ind]:
+                    test_set.remove(res[poping_ind])
                     res.pop()
-                    test_set.remove(arr_repr[poping_ind])
                     poping_ind -= 1
                 continue
             res.append(arr_repr[ind])
