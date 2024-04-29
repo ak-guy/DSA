@@ -1,34 +1,45 @@
-n = 5
-col = set()
-posDiag = set()
-negDiag = set()
-res = []
-board = [["."] * n for i in range(n)]
-# print(board)
+from typing import List
 
-def backtrack(r, curr):
-    if r == n:
-        curr = ["".join(row) for row in board]
-        res.append(curr.copy())
-        return
 
-    for c in range(n):
-        if c in col or r+c in posDiag or r-c in negDiag:
-            continue
+'''
+for n = 4:  (0,0)   (1,-1)   (2,-2)    (3,-3)
+            (1,1)   (2, 0)   (3,-1)    (4,-2)
+            (2,2)   (3, 1)   (4, 0)    (5,-1)
+            (3,3)   (4, 2)   (5, 1)    (6, 0)
 
-        col.add(c)
-        posDiag.add(r+c)
-        negDiag.add(r-c)
-        board[r][c] = 'Q'
-        backtrack(r+1, curr)
+these are (posDiagonal, negDiagonal)
+'''
 
-        col.remove(c)
-        posDiag.remove(r+c)
-        negDiag.remove(r-c)
-        board[r][c] = '.'
-    
-    return
+class Solution:
+    def __init__(self):
+        self.res = []
 
-    
-backtrack(0, [])
-print(res)
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        board = [['.' for i in range(n)] for j in range(n)]
+        posDiagonal = set() # r+c
+        negDiagonal = set() # r-c
+        column = set()
+
+        def backtrack(row):
+            if row == n:
+                possible_res = ["".join(row) for row in board]
+                self.res.append(possible_res.copy())
+                return
+
+            for col in range(n):
+                if col in column or (row+col) in posDiagonal or (row-col) in negDiagonal:
+                    continue
+                posDiagonal.add(row+col)
+                negDiagonal.add(row-col)
+                column.add(col)
+                board[row][col] = 'Q'
+                backtrack(row+1)
+
+                posDiagonal.remove(row+col)
+                negDiagonal.remove(row-col)
+                column.remove(col)
+                board[row][col] = '.'
+
+        backtrack(0)
+        
+        return self.res
