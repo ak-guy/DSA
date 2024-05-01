@@ -1,35 +1,43 @@
-from collections import defaultdict,deque
+# Definition for a binary tree node.
+from __future__ import annotations
+
+from collections import defaultdict
+from collections import deque
+from typing import List
+from typing import Optional
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 class Solution:
-    def verticalTraversal(self, root):
-        # dic = {} -> vertical_level(integer) : root_val(list)
-        minn_level = 1e10
-        maxx_level = -1e10
-        def levelorder(root):
-            nonlocal minn_level
-            nonlocal maxx_level
-            res = []
-            q = deque()
-            q.append((root, 0, 0)) # root : level or row or height : column or vertical_height 
-            dic = defaultdict(lambda : defaultdict(list))
+    def verticalTraversal(self, root: TreeNode | None) -> list[list[int]]:
+        q = deque()
+        q.append((root, 0, 0))  # root_node, col, height
+        # {main_key : {sub_key: [values]}}
+        mappings = defaultdict(lambda: defaultdict(list))
+        leftmost_col = 10000001
+        rightmost_col = -10000001
+        while q:
+            for i in range(len(q)):
+                node, col, height = q.popleft()
+                if node:
+                    leftmost_col = min(leftmost_col, col)
+                    rightmost_col = max(rightmost_col, col)
+                    mappings[col][height].append(node.val)
+                    q.append((node.left, col-1, height+1))
+                    q.append((node.right, col+1, height+1))
 
-            while q:
-                for i in range(len(q)):
-                    node, level, col = q.popleft()
-                    if node:
-                        minn_level = min(minn_level, col)
-                        maxx_level = max(maxx_level, col)
-                        dic[str(col)][level].append(node.val)
-                        dic[str(col)][level].sort()
-                        q.append((node.left, level+1, col-1))
-                        q.append((node.right, level+1, col+1))
-            return dic
+        total_cols = rightmost_col - leftmost_col + 1
+        res = [[] for i in range(total_cols)]
 
-        ans = levelorder(root)
-        res = []
-        for i in range(minn_level, maxx_level+1):
-            dummy = []
-            for col in ans[str(i)]:
-                dummy.extend(ans[str(i)][col])
-            res.append(dummy)
-            
+        for key, val in mappings.items():
+            for new_key, new_val in val.items():
+                some_index = abs(leftmost_col) + key
+                res[some_index].extend(sorted(new_val))
+
         return res
