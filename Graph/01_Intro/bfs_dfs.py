@@ -3,6 +3,7 @@
 '''
 from collections import defaultdict, deque
 from typing import List
+import sys
 
 def createGraph(val1: int, val2: int, graph_type: int, gp: defaultdict):
     gp[val1].append(val2)
@@ -41,13 +42,20 @@ def dfsTraversal(startnode: int, gp: defaultdict) -> List[int]:
 
 if __name__ == '__main__':
     graph_type = int(input("Enter integer value for graph type directed(0) / undirected(1) : "))
+    assert graph_type in [0,1], "Graph type should be either 0 or 1"
+
     n = int(input("Enter the number of edges : "))
+    assert n >= 1, "There should be atleast one edge"
 
     gp = defaultdict(list)
     for _ in range(n):
-       val1, val2 = map(int, input().split(' '))
-       createGraph(val1, val2, graph_type, gp)
-
+        try:
+            val1, val2 = map(int, input().split(' '))
+            createGraph(val1, val2, graph_type, gp)
+        except Exception as e:
+            print("more than two values provided >> {}".format(e))
+            sys.exit(0)
+            
     print(gp) # for debugging
 
     startnode = int(input("Enter starting node : "))
