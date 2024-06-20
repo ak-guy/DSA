@@ -1,4 +1,4 @@
-from collections import defaultdict
+from collections import defaultdict, deque
 from typing import List, Dict
 
 def createGraph(val1: int, val2: int, graph_type: int, gp: defaultdict):
@@ -14,7 +14,8 @@ class DFSSolution:
         try:
             for node in graph[current_node]:
                 if node not in visited:
-                    return self.helper(current_node=node, parent_node=current_node, graph=graph, visited=visited)
+                    if self.helper(current_node=node, parent_node=current_node, graph=graph, visited=visited):
+                        return True
                 elif parent_node != node:
                     return True
         except:
@@ -24,8 +25,7 @@ class DFSSolution:
 
     def isCycle(self, graph: Dict[int, List]) -> bool:
         visited = set()
-        total_nodes = len(graph)
-        for current_node in range(total_nodes):
+        for current_node in graph.keys():
             if current_node not in visited:
                 if self.helper(current_node, -1, graph, visited):
                     return True
@@ -33,12 +33,30 @@ class DFSSolution:
         return False
 
 class BFSSolution:
-    def helper(self):
-        pass
+    def helper(self, dq: deque, graph: Dict[int, List], visited: set):
+        while dq:
+            current_node, parent_node = dq.popleft()
+            for node in graph[current_node]:
+                if node not in visited:
+                    dq.append((node, current_node))
+                elif parent_node != node:
+                    return True
+                
+                visited.add(node)
+        
+        return False
 
     def isCycle(self, graph: Dict[int, List]) -> bool:
-        pass
-
+        visited = set()
+        dq = deque() # (current_node, parent_node) 
+        for node in graph.keys():
+            if node not in visited:
+                dq.append((node, -1))
+                visited.add(node)
+                if self.helper(dq, graph, visited):
+                    return True
+        
+        return False
 
 if __name__ == '__main__':
     traversal_type = int(input("Enter integer value for traversal type dfs(0) / bfs(1) : "))
