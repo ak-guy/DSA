@@ -5,9 +5,8 @@ from enum import IntEnum
 from datetime import datetime
 
 class VehicleType(IntEnum):
-    CAR = 1
-    BIKE = 2
-    TRUCK = 3
+    TWOWHEELER = 1
+    FOURWHEELER = 2
 
 class Vehicle:
     def __init__(self, vehicle_number: str, vehicle_type: VehicleType) -> None:
@@ -24,6 +23,7 @@ class ParkingSpot:
         self.__price = 5
         self.is_empty = is_empty
         self.vehicle = vehicle
+        self.__ticket = None
 
     @property
     def price(self):
@@ -39,6 +39,14 @@ class ParkingSpot:
     def parkVehicle(self): ...
 
     def removeVehicle(self): ...
+
+    @property
+    def ticket(self):
+        return self.__ticket
+    
+    @ticket.setter
+    def ticket(self, ticket_obj: Ticket):
+        self.__ticket = ticket_obj
 
 class TwoWheelerParkingSpot(ParkingSpot):
     def __init__(self, id: int, vehicle: Vehicle, is_empty: bool = False):
@@ -65,7 +73,6 @@ class IParkingSpotManager:
         assert isinstance(parking_strategy, IParkingStrategy)
         self.__parking_strategy = parking_strategy
 
-    # @abstractmethod
     def findParkingSpace(self):
         self.parking_strategy.find_space()
 
@@ -102,8 +109,44 @@ class DefaultParkingStrategy(IParkingStrategy):
 
 
 class Ticket:
-    def __init__(self, entry_time: datetime, vehicle: Vehicle, parking_spot: ParkingSpot):
-        self.entry_time = entry_time
+    def __init__(self, vehicle: Vehicle, parking_spot: ParkingSpot):
+        self.entry_time: datetime = datetime.now()
         self.vehicle = vehicle
         self.parking_spot = parking_spot
 
+    def __repr__(self) -> str:
+        return f'Ticket(vehicle={self.vehicle}, parking_spot={self.parking_spot}, entry_time={self.entry_time})'
+
+class ParkingSpotManagerFactory:
+    def __init__(self, vehicle_type: VehicleType):
+        self.__vehicle_type = vehicle_type
+    
+    @property
+    def vehicle_type(self):
+        return self.__vehicle_type
+    
+    @vehicle_type.setter
+    def vehicle_type(self, vehicle_type: VehicleType):
+        self.__vehicle_type = vehicle_type
+
+    def getParkingSpotManager(self):
+        if self.__vehicle_type == 1:
+            return TwoWheelerParkingSpotManager
+        elif self.__vehicle_type == 2:
+            return FourWheelerParkingSpotManager 
+
+
+class EntranceGate:
+    def __init__(self, vehicle: Vehicle, parking_spot_manager_factory: ParkingSpotManagerFactory):
+        self.vehicle = vehicle
+        self.parking_spot_manager_obj = parking_spot_manager_factory(self.vehicle.vehicle_type)
+
+    def getParkingSpace(self):
+        self.parking_spot_manager_obj.findParkingSpace()
+
+    def bookParkingSpace(self) -> ParkingSpot:
+        self.parking_spot_manager_obj.parkVehicle()    
+
+    def generateTicket(self, vehicle: Vehicle, ):
+        parking_spot_obj = self.bookParkingSpace()
+        parking_spot_obj.ticket = Ticket(vehicle, )
