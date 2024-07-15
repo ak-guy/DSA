@@ -20,10 +20,10 @@ class Vehicle:
 class ParkingSpot:
     def __init__(self, spot_number: int, vehicle: Vehicle, is_empty: bool = False) -> None:
         self.spot_number = spot_number
-        self.__price = 5
+        self.__price = None
         self.is_empty = is_empty
         self.vehicle = vehicle
-        self.__ticket = None
+        # self.__ticket = None
 
     @property
     def price(self):
@@ -40,22 +40,23 @@ class ParkingSpot:
 
     def removeVehicle(self): ...
 
-    @property
-    def ticket(self):
-        return self.__ticket
+    # @property
+    # def ticket(self):
+    #     return self.__ticket
     
-    @ticket.setter
-    def ticket(self, ticket_obj: Ticket):
-        self.__ticket = ticket_obj
+    # @ticket.setter
+    # def ticket(self, ticket_obj: Ticket):
+    #     self.__ticket = ticket_obj
 
 class TwoWheelerParkingSpot(ParkingSpot):
-    def __init__(self, id: int, vehicle: Vehicle, is_empty: bool = False):
-        super().__init__(id, vehicle, is_empty)
+    def __init__(self, spot_number: int, vehicle: Vehicle, is_empty: bool = False):
+        super().__init__(spot_number, vehicle, is_empty)
         self.__price = 10
 
 class FourWheelerParkingSpot(ParkingSpot):
-    def __init__(self, id: int, vehicle: Vehicle, is_empty: bool = False):
-        super().__init__(id, vehicle, is_empty)
+    ''' FourWheelerParkingSpot '''
+    def __init__(self, spot_number: int, vehicle: Vehicle, is_empty: bool = False):
+        super().__init__(spot_number, vehicle, is_empty)
         self.__price = 20
         
 
@@ -117,7 +118,8 @@ class Ticket:
     def __repr__(self) -> str:
         return f'Ticket(vehicle={self.vehicle}, parking_spot={self.parking_spot}, entry_time={self.entry_time})'
 
-class ParkingSpotManagerFactory:
+
+class IParkingSpotManagerFactory(ABC):
     def __init__(self, vehicle_type: VehicleType):
         self.__vehicle_type = vehicle_type
     
@@ -129,6 +131,11 @@ class ParkingSpotManagerFactory:
     def vehicle_type(self, vehicle_type: VehicleType):
         self.__vehicle_type = vehicle_type
 
+    @abstractmethod
+    def getParkingSpotManager(self): ...
+
+class ParkingSpotManagerFactoryA(IParkingSpotManagerFactory):
+    ''' Creating object of class IParkingSpotManager based on vehicle type '''
     def getParkingSpotManager(self):
         if self.__vehicle_type == 1:
             return TwoWheelerParkingSpotManager
@@ -137,7 +144,7 @@ class ParkingSpotManagerFactory:
 
 
 class EntranceGate:
-    def __init__(self, vehicle: Vehicle, parking_spot_manager_factory: ParkingSpotManagerFactory):
+    def __init__(self, vehicle: Vehicle, parking_spot_manager_factory: IParkingSpotManagerFactory):
         self.vehicle = vehicle
         self.parking_spot_manager_obj = parking_spot_manager_factory(self.vehicle.vehicle_type)
 
@@ -147,6 +154,6 @@ class EntranceGate:
     def bookParkingSpace(self) -> ParkingSpot:
         self.parking_spot_manager_obj.parkVehicle()    
 
-    def generateTicket(self, vehicle: Vehicle, ):
-        parking_spot_obj = self.bookParkingSpace()
-        parking_spot_obj.ticket = Ticket(vehicle, )
+    def generateTicket(self) -> Ticket: ...
+
+
