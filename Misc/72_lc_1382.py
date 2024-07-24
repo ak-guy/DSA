@@ -11,7 +11,7 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def createBalancedBST(self, arr: List[int]) -> TreeNode:
+    def createBalancedBSTFromSortedArray(self, arr: List[int]) -> TreeNode:
         def helper(start_index, end_index):
             if end_index < start_index:
                 return
