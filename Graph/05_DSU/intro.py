@@ -11,19 +11,19 @@ class DisjointSet:
         self.parent[node] = self.findParent(self.parent[node])
         return self.parent[node]
 
-    def unionBySize(self, u, v):
-        ulp_u = self.findParent(u)
-        ulp_v = self.findParent(v)
-        
-        if ulp_u == ulp_v:
+    def unionBySize(self, x: int, y: int):
+        rootX = self.findParent(x)
+        rootY = self.findParent(y)
+
+        if rootX == rootY:
             return
-        
-        if self.size[ulp_u] < self.size[ulp_v]:
-            self.parent[ulp_u] = ulp_v
-            self.size[ulp_v] += self.size[ulp_u]
+
+        if self.size[rootX] > self.size[rootY]:
+            self.size[rootX] += self.size[rootY]
+            self.parent[rootY] = rootX
         else:
-            self.parent[ulp_v] = ulp_u
-            self.size[ulp_u] += self.size[ulp_v]
+            self.size[rootY] += self.size[rootX]
+            self.parent[rootX] = rootY
 
 
 if __name__ == "__main__":
