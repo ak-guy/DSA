@@ -6,6 +6,14 @@ class Solution:
     def getHappyString(self, n: int, k: int) -> str:
         res = ''
         l = ['a', 'b', 'c']
+        
+        ''' base case to handle kth Lexicographical String not existing '''
+        d = {1: 3}
+        for i in range(2, 11):
+            d[i] = 2 * d[i-1]
+
+        if k > d.get(n):
+            return res
 
         def backtrack(path, path_length):
             nonlocal res
