@@ -42,3 +42,26 @@ class Solution:
             y += 2
 
         return res
+
+
+# Method - 2 : optimized approach with only single for loop
+class Solution:
+    def spiralMatrixIII(self, row: int, col: int, r: int, c: int) -> List[List[int]]:
+        total_res = row * col
+        res = []
+        res_count = 0
+
+        variable = [[0,1], [1,0], [0,-1], [-1,0]]
+        n = 0
+
+        while res_count < total_res:
+            dr, dc = variable[int(n % 4)]
+            for _ in range(int(n // 2) + 1):
+                if 0 <= r < row and 0 <= c < col: 
+                    res.append([r, c])
+                    res_count += 1
+                r += dr
+                c += dc
+            n += 1
+        
+        return res
