@@ -28,6 +28,7 @@ class Solution {
     }
 }
 
-public class 93_lc_2895 {
+
+class Dummy {
     
 }

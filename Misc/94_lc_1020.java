@@ -45,6 +45,6 @@ package Misc;
     }
 }
 
-public class 94_lc_1020 {
+class Dummy {
     
 }
