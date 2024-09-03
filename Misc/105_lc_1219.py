@@ -5,8 +5,8 @@ from typing import List
 class Solution:
     def getMaximumGold(self, grid: List[List[int]]) -> int:
         def backtrack(r,c):
-            temp = grid[r][c]
-            res = temp
+            coinsAvailable = grid[r][c]
+            res = coinsAvailable
             grid[r][c] = 0
             directions = [[0,1],[1,0],[-1,0],[0,-1]]
             
@@ -14,10 +14,10 @@ class Solution:
                 row = r + direction[0]
                 col = c + direction[1]
                 if row>=0 and col>=0 and row<n and col<m  and grid[row][col] != 0:
-                    res = max(res, temp + backtrack(row, col))
+                    res = max(res, coinsAvailable + backtrack(row, col))
 
             # backtrack
-            grid[r][c] = temp
+            grid[r][c] = coinsAvailable
             return res
 
         n = len(grid)
