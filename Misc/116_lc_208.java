@@ -20,7 +20,7 @@ class Node {
         node[c-'a'] = new Node();
     }
 
-    public Node getChar(char c) {
+    public Node getCharReferenceNode(char c) {
         return node[c-'a'];
     }
 
@@ -46,7 +46,7 @@ class Trie {
             if (!node.containsKey(ch)) {
                 node.putKey(ch);
             }
-            node = node.getChar(ch); // shifting reference node
+            node = node.getCharReferenceNode(ch); // shifting reference node
         }
         node.setEndFlag(true);
     }
@@ -57,7 +57,7 @@ class Trie {
             if (!node.containsKey(ch)) {
                 return false;
             }
-            node = node.getChar(ch);
+            node = node.getCharReferenceNode(ch);
         }
         return node.getEndFlag();
     }
@@ -68,7 +68,7 @@ class Trie {
             if (!node.containsKey(ch)) {
                 return false;
             }
-            node = node.getChar(ch);
+            node = node.getCharReferenceNode(ch);
         }
         return true;
     }
