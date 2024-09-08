@@ -18,7 +18,7 @@ public class test {
         //     pq.offer(save);
         //     m -= 1;
         // }
-        // System.out.println(totalSum);
+        System.out.println('b' - 'a');
         
 
     }
