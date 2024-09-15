@@ -5,7 +5,36 @@ package Misc;
  * Help -> https://leetcode.com/problems/minimum-deletions-to-make-string-balanced/solutions/943968/java-dp-accepted-explanation/
  */
 
- class Solution {
+
+// to Review (Not correct solution)
+class Memoization {
+    private int memoize(int ind, int bCount, String s, int[] dp) {
+        if (ind == s.length()) return 0;
+
+        int minDeletion;
+        if (s.charAt(ind) == 'a') {
+            // option 1: delete all b that occured before ind
+            // option 2: delete current a
+            minDeletion = Math.min(bCount, 1 + memoize(ind+1, bCount, s, dp));
+        }else {
+            minDeletion = memoize(ind+1, bCount+1, s, dp);
+        }
+
+        dp[ind] = minDeletion;
+        return dp[ind];
+    }
+
+    public int minimumDeletions(String s) {
+        int sLen = s.length();
+        int[] dp = new int[sLen+1];
+        memoize(0, 0, s, dp);
+        return dp[sLen];
+    }
+}
+
+
+// correct solution
+class Solution {
     public int minimumDeletions(String s) {
         int sLen = s.length();
         int bCount = 0;
