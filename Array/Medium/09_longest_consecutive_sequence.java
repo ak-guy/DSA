@@ -5,6 +5,9 @@ import java.util.stream.Collectors;
 
 /*
  * 128. Longest Consecutive Sequence
+ * Important thing to remember is that we only need to check for further elements
+ * if the current element is the starting number of subsequence that we can confirm
+ * by checking in set whether num-1 exists or not
  */
 
 class Solution {
