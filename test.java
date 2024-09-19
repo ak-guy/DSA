@@ -1,5 +1,10 @@
 public class test {
     public static void main(String[] args) {
-        System.out.println(Integer.MAX_VALUE);
+        int[] l = {1000000000,1000000000,1000000000,1000000000};
+        int res = 0;
+        for (int n : l) {
+            res += n;
+            System.out.println(res);
+        }
     }
 }
