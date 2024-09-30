@@ -1,32 +1,22 @@
-from threading import Lock, Thread
+import heapq
 
-class Singleton(type):
-    _classObj = None
-    _lock = Lock()
-
-    def __call__(cls, *args, **kwargs):
-        with cls._lock: 
-            if not isinstance(cls._classObj, cls):
-                obj = super().__call__(*args, **kwargs)
-                cls._classObj = obj
-        return cls._classObj
-    
-class Test(metaclass=Singleton):
-    def __init__(self, x):
+class Comparator:
+    def __init__(self, x, y):
         self.x = x
-
+        self.y = y
     
-def createTest(x):
-    obj = Test(x)
-    print(obj.x)
+    def __gt__(self, other):
+        return self.x < other.x
+    
+    def __repr__(self):
+        return f"{self.x}, {self.y}"
 
-t1 = Thread(target=createTest, args=(110,))
-t2 = Thread(target=createTest, args=(2000,))
+arr = [[1,2], [5,2], [2,8]]
+pq = []
+for val in arr:
+    heapq.heappush(pq, Comparator(val[0], val[1]))
+# heapq.heapify(arr, key=lambda x: arr[x[2]])
 
-t1.start()
-t2.start()
-
-t1.join()
-t2.join()
-
-print(type(Test))
+for _ in range(len(arr)):
+    val = pq.pop()
+    print(val)
