@@ -1,6 +1,3 @@
-import heapq
-heapq.heapify
-
 s = 'A'
 s.isupper()
 class A:
@@ -21,4 +18,4 @@ def createClass(name):
     return c()
 
 carObj = createClass('Car')
-print(carObj)
+print(carObj.double(20))
