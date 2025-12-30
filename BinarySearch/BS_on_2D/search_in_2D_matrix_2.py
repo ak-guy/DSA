@@ -10,5 +10,5 @@ class Solution:
                 start_col -= 1
             else:
                 start_row += 1
-        
+
         return False

@@ -1,5 +1,7 @@
 from typing import List
 from collections import defaultdict, deque
+
+
 class Solution:
     def makeGraph(self, isConnected: List[List[int]], n: int):
         gr = defaultdict(list)
@@ -30,5 +32,5 @@ class Solution:
             if visited[i] == 0:
                 res += 1
                 self.markConnectedCities(graph, i, visited)
-        
+
         return res

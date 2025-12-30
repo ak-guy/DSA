@@ -1,11 +1,13 @@
 # without using recursion
 from collections import deque
+
+
 def LeftView(root):
     def sol(root):
         q = deque()
         q.append(root)
         res = []
-        
+
         while q:
             len_q = len(q)
             for i in range(len_q):
@@ -18,10 +20,9 @@ def LeftView(root):
                     if node.right:
                         q.append(node.right)
         return res
-        
+
     res = sol(root)
     return res
-
 
 
 # Using recursion
@@ -29,14 +30,13 @@ def LeftView(root):
     def sol(root, level):
         if not root:
             return
-        
+
         if level == len(res):
             res.append(root.data)
-        
-        sol(root.left, level+1)
-        sol(root.right, level+1)
-        
-        
+
+        sol(root.left, level + 1)
+        sol(root.right, level + 1)
+
     res = []
     sol(root, 0)
     return res

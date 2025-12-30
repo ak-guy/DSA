@@ -1,8 +1,10 @@
-'''
+"""
 2317. Maximum XOR After Operations
-'''
+"""
 
 from typing import List
+
+
 class Solution:
     def maximumXOR(self, nums: List[int]) -> int:
         bits = [0 for i in range(36)]
@@ -17,15 +19,16 @@ class Solution:
         res = 0
         for ind, bit in enumerate(bits):
             if bit:
-                res += (1 << ind)
-        
+                res += 1 << ind
+
         return res
-    
+
+
 # Method 2 : we can get result by simply taking or of all element
 class Solution:
     def maximumXOR(self, nums: List[int]) -> int:
         res = 0
         for num in nums:
             res |= num
-        
+
         return res

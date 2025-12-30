@@ -1,7 +1,10 @@
-'''
+"""
 1558. Minimum Numbers of Function Calls to Make Target Array
-'''
+"""
+
 from typing import List
+
+
 # Method 1
 class Solution:
     def getOpx(self, val):
@@ -26,7 +29,8 @@ class Solution:
             opx2 = max(opx2, second)
 
         return opx1 + opx2
-    
+
+
 # Method 2 - Using Bit Manipulation
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
@@ -35,9 +39,9 @@ class Solution:
         for num in nums:
             currOpx2 = 0
             while num:
-                opx1 += num%2
+                opx1 += num % 2
                 currOpx2 += 1
                 num >>= 1
             opx2 = max(opx2, currOpx2)
-        
+
         return opx1 + opx2 - 1

@@ -1,4 +1,5 @@
-'''not understood yet'''
+"""not understood yet"""
+
 from __future__ import annotations
 
 from typing import List
@@ -6,7 +7,7 @@ from typing import List
 
 class Solution:
     def findRedundantConnection(self, edges: list[list[int]]) -> list[int]:
-        parent = {v: -1 for v in range(1, len(edges)+1)}
+        parent = {v: -1 for v in range(1, len(edges) + 1)}
 
         def find(u):
             if parent[u] != -1:
@@ -33,7 +34,6 @@ class Solution:
 
         redundant = None
         for u, v in edges:
-
             if union(u, v):
                 # check if edge (u, v) forms a cycle
                 redundant = [u, v]

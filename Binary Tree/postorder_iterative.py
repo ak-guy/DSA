@@ -9,5 +9,5 @@ def postorderTraversal(self, root):
             res.append(top_node.val)
             st.append(top_node.left)
             st.append(top_node.right)
-    
+
     return res[::-1]

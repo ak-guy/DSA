@@ -1,14 +1,17 @@
-'''
+"""
 1382. Balance a Binary Search Tree
-'''
+"""
 
 from typing import List
+
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def createBalancedBSTFromSortedArray(self, arr: List[int]) -> TreeNode:
@@ -20,15 +23,16 @@ class Solution:
 
             mid = (end_index + start_index) // 2
             root = TreeNode(arr[mid])
-            root.left = helper(start_index, mid-1)
-            root.right = helper(mid+1, end_index)
+            root.left = helper(start_index, mid - 1)
+            root.right = helper(mid + 1, end_index)
 
             return root
 
-        return helper(0, len(arr)-1)
+        return helper(0, len(arr) - 1)
 
     def balanceBST(self, root: TreeNode) -> TreeNode:
         bst_values = []
+
         def dfs(root):
             if root.left:
                 dfs(root.left)

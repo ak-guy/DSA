@@ -1,11 +1,13 @@
-'''
+"""
 idea is to run a loop to find the index of first occurence, then run another loop
 to find the index of last occurence
-'''
-def find(arr,n,target):
+"""
+
+
+def find(arr, n, target):
     # to find starting index
     left = 0
-    right = n-1
+    right = n - 1
     start = -1
     while left <= right:
         mid = (left + right) // 2
@@ -16,10 +18,10 @@ def find(arr,n,target):
             left = mid + 1
         else:
             right = mid - 1
-    
+
     # to find ending index
     left = 0
-    right = n-1
+    right = n - 1
     end = -1
     while left <= right:
         mid = (left + right) // 2
@@ -30,5 +32,5 @@ def find(arr,n,target):
             left = mid + 1
         else:
             right = mid - 1
-    
+
     return [start, end]

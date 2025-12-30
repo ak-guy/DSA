@@ -3,14 +3,18 @@ arr = [10, 9, 2, 5, 3, 7, 101, 18]
 n = len(arr)
 count = 1
 
-dp = [1 for i in range(n)] # at any index it will store the maximum length acheived till that index
-hash = [0 for j in range(n)] # at any index it will store the index of maximum length acheived previously  
+dp = [
+    1 for i in range(n)
+]  # at any index it will store the maximum length acheived till that index
+hash = [
+    0 for j in range(n)
+]  # at any index it will store the index of maximum length acheived previously
 for i in range(n):
     hash[i] = i
-    for j in range(0,i):
-        if arr[i] > arr[j] and 1+dp[j] > dp[i]:
+    for j in range(0, i):
+        if arr[i] > arr[j] and 1 + dp[j] > dp[i]:
             hash[i] = j
-            dp[i] = max(dp[i],1+dp[j])
+            dp[i] = max(dp[i], 1 + dp[j])
             count = max(count, dp[i])
 print(*hash)
 print(*dp)

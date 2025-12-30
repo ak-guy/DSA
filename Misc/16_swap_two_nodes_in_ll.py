@@ -1,9 +1,12 @@
 # # Method - 1 (Brute Force)
 from typing import Optional
+
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
 
 class Solution:
     def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
@@ -12,7 +15,7 @@ class Solution:
         while curr:
             curr = curr.next
             len_ll += 1
-        
+
         curr = head
         traversed_len = 0
         while curr:
@@ -22,17 +25,18 @@ class Solution:
             if traversed_len == len_ll - k:
                 node2 = curr
             curr = curr.next
-        
+
         node1.val, node2.val = node2.val, node1.val
         return head
-    
+
 
 # # Method - 2 (Optimized Approach)
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-        
+
+
 class Solution:
     def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         curr1, curr2 = head, head
@@ -46,6 +50,6 @@ class Solution:
         while last.next:
             last = last.next
             curr2 = curr2.next
-        
+
         curr1.val, curr2.val = curr2.val, curr1.val
         return head

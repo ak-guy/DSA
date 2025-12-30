@@ -1,6 +1,7 @@
-'''
+"""
 1061. Lexicographically Smallest Equivalent String
-'''
+"""
+
 
 class Solution:
     def __init__(self):
@@ -11,13 +12,13 @@ class Solution:
         if not self.parent.get(x):
             self.parent[x] = x
             return self.parent[x]
-        
+
         # if x's parent is x
         if self.parent[x] == x:
             return self.parent[x]
-        
-        self.parent[x] = self.find(self.parent[x]) # path compression
-        
+
+        self.parent[x] = self.find(self.parent[x])  # path compression
+
         return self.parent[x]
 
     def union(self, x: str, y: str):
@@ -33,9 +34,9 @@ class Solution:
         n = len(s1)
         for i in range(n):
             self.union(s1[i], s2[i])
-        
-        res = ''
+
+        res = ""
         for char in baseStr:
             res += self.find(char)
-        
+
         return res

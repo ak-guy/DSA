@@ -1,5 +1,7 @@
 # Brute Force (doing exactly as told in question)
 from typing import List
+
+
 class Solution:
     def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
         n = len(pushed)
@@ -15,14 +17,14 @@ class Solution:
                 counter_pop += 1
 
         return len(push_st) == 0
-    
+
 
 # Space optimized (utilizing pushed array as a stack)
 class Solution:
     def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
         n = len(pushed)
         m = len(popped)
-        
+
         push_pointer, pop_pointer = 0, 0
 
         for val in pushed:
@@ -32,5 +34,5 @@ class Solution:
                 pop_pointer += 1
 
             push_pointer += 1
-        
+
         return push_pointer == 0

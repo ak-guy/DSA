@@ -7,7 +7,7 @@ def inorderTraversal(self, root):
         while curr:
             st.append(curr)
             curr = curr.left
-        
+
         curr = st.pop()
         res.append(curr.val)
         curr = curr.right

@@ -1,10 +1,14 @@
-'''
+"""
 986. Interval List Intersections
-'''
+"""
 
 from typing import List
+
+
 class Solution:
-    def intervalIntersection(self, firstList: List[List[int]], secondList: List[List[int]]) -> List[List[int]]:
+    def intervalIntersection(
+        self, firstList: List[List[int]], secondList: List[List[int]]
+    ) -> List[List[int]]:
         starting_index_fl1 = 0
         starting_index_fl2 = 0
         n1 = len(firstList)
@@ -24,7 +28,9 @@ class Solution:
 
             # no need to handle case of no intersection bcz in that we just need to move pointer that is handled down
 
-            if firstList_end > secondList_end: starting_index_fl2 += 1
-            else: starting_index_fl1 += 1
-        
+            if firstList_end > secondList_end:
+                starting_index_fl2 += 1
+            else:
+                starting_index_fl1 += 1
+
         return res

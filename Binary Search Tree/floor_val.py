@@ -1,4 +1,4 @@
-def findCeil(self,root, inp):
+def findCeil(self, root, inp):
     res = -1
     while root:
         if root.key > inp:
@@ -6,5 +6,5 @@ def findCeil(self,root, inp):
         else:
             res = root.key
             root = root.right
-        
+
     return res

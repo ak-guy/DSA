@@ -4,24 +4,25 @@ class TrieNode:
         self.endFlag = False
 
     def containsKey(self, c):
-        return self.node[ord(c)-ord('a')] != None
-    
+        return self.node[ord(c) - ord("a")] != None
+
     def putKey(self, c):
-        self.node[ord(c)-ord('a')] = TrieNode()
-    
+        self.node[ord(c) - ord("a")] = TrieNode()
+
     def getCharReferenceNode(self, c):
-        return self.node[ord(c)-ord('a')]
-    
+        return self.node[ord(c) - ord("a")]
+
     def getEndFlag(self):
         return self.endFlag
-    
+
     def setEndFlag(self, val):
         self.endFlag = val
+
 
 class Trie:
     def __init__(self):
         self.rootNode = TrieNode()
-    
+
     def insert(self, word):
         node = self.rootNode
         for char in word:
@@ -29,7 +30,7 @@ class Trie:
                 node.putKey(char)
             node = node.getCharReferenceNode(char)
         node.setEndFlag(True)
-    
+
     def search(self, word):
         node = self.rootNode
         for char in word:
@@ -37,7 +38,7 @@ class Trie:
                 return False
             node = node.getCharReferenceNode(char)
         return node.getEndFlag()
-    
+
     def startsWith(self, prefix):
         node = self.rootNode
         for char in prefix:

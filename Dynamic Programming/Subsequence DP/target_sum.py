@@ -7,7 +7,7 @@ class Solution:
         # => sum(arr) - s2 - s2 = target
         # => s2 = (sum(arr) - target) // 2
         # so we need to find how many subsets have sum s2
-        
+
         def f(i, t):
             if i == 0:
                 if arr[0] == 0 and t == 0:
@@ -19,21 +19,21 @@ class Solution:
             if dp[i][t] != -1:
                 return dp[i][t]
 
-            not_pick = f(i-1, t)
+            not_pick = f(i - 1, t)
             pick = 0
-            if t>=arr[i]:
-                pick = f(i-1, t-arr[i])
-            
+            if t >= arr[i]:
+                pick = f(i - 1, t - arr[i])
+
             dp[i][t] = pick + not_pick
             return dp[i][t]
-        
+
         total = sum(arr)
         if (total - target) % 2:
             return 0
-            
-        if total<target:
+
+        if total < target:
             return 0
-            
+
         s2 = (total - target) // 2
-        dp = [[-1 for i in range(s2+1)] for j in range(N)]
-        return f(N-1, s2)
+        dp = [[-1 for i in range(s2 + 1)] for j in range(N)]
+        return f(N - 1, s2)

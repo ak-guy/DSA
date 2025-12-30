@@ -1,12 +1,14 @@
 from typing import List
+
+
 class Solution:
     def countSubarrays(self, nums: List[int], minK: int, maxK: int) -> int:
-        '''
+        """
         consider example,
         nums: list = [3,1,2,5,2,7,1,5]
         minK: int = 1
         maxK: int = 5
-        '''
+        """
 
         nums_length: int = len(nums)
         sliding_window_starting_index: int = 0
@@ -24,11 +26,16 @@ class Solution:
                 found_maximum = True
                 fives_index = sliding_window_ending_index
 
-            if nums[sliding_window_ending_index] > maxK or nums[sliding_window_ending_index] < minK:
+            if (
+                nums[sliding_window_ending_index] > maxK
+                or nums[sliding_window_ending_index] < minK
+            ):
                 found_minimum = False
                 found_maximum = False
                 sliding_window_starting_index = sliding_window_ending_index + 1
             elif found_minimum and found_maximum:
-                result += (min(ones_index, fives_index) - sliding_window_starting_index + 1)
+                result += (
+                    min(ones_index, fives_index) - sliding_window_starting_index + 1
+                )
 
         return result

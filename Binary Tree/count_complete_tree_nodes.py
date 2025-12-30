@@ -3,7 +3,7 @@ class Solution:
         def leftHeight(root):
             if not root:
                 return 0
-            
+
             return 1 + leftHeight(root.left)
 
         def rightHeight(root):
@@ -13,9 +13,8 @@ class Solution:
             return 1 + rightHeight(root.right)
 
         return [leftHeight(root) == rightHeight(root), leftHeight(root)]
-        
+
     def countNodes(self, root) -> int:
-        
         def sol(root):
             if not root:
                 return 0

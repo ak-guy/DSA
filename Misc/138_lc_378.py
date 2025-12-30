@@ -1,9 +1,10 @@
-'''
+"""
 378. Kth Smallest Element in a Sorted Matrix
-'''
+"""
 
 import heapq
 from typing import List
+
 
 # Method -1 : Brute force
 class Solution:
@@ -18,9 +19,10 @@ class Solution:
                 if heapLen > k:
                     heapq.heappop(pq)
                     heapLen -= 1
-        
+
         return -1 * (heapq.heappop(pq))
-    
+
+
 # Method - 2 : Binary Search
 # Binary Search
 class Solution:
@@ -29,24 +31,23 @@ class Solution:
 
         def smallerOrEqualCount(val):
             res = 0
-            colEnd = m-1
+            colEnd = m - 1
             for r in range(n):
                 while colEnd >= 0 and matrix[r][colEnd] > val:
                     colEnd -= 1
-                res += (colEnd+1)
-            
+                res += colEnd + 1
+
             return res
 
         # search range
-        start, end = matrix[0][0], matrix[n-1][m-1]
+        start, end = matrix[0][0], matrix[n - 1][m - 1]
         ans = 0
         while start <= end:
             toSearch = (end + start) // 2
             if smallerOrEqualCount(toSearch) >= k:
                 ans = toSearch
-                end = toSearch-1
+                end = toSearch - 1
             else:
-                start = toSearch+1
+                start = toSearch + 1
 
         return ans
-        

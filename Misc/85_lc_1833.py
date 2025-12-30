@@ -1,12 +1,14 @@
-'''
+"""
 1833. Maximum Ice Cream Bars
-'''
+"""
 
 from typing import List
+
+
 class Solution:
     def countSort(self, arr: List[int], n: int) -> List[int]:
         max_val = max(arr)
-        count_arr = [0 for _ in range(max_val+1)]
+        count_arr = [0 for _ in range(max_val + 1)]
         for ind in range(n):
             count_arr[arr[ind]] += 1
         sorted_arr = []

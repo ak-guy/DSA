@@ -9,5 +9,5 @@ def preorderTraversal(self, root):
             res.append(var.val)
             st.append(var.right)
             st.append(var.left)
-    
+
     return res

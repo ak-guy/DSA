@@ -28,4 +28,4 @@ class Solution:
 
 
 obj = Solution()
-obj.numberOfSpecialChars('aaAbacBC')
+obj.numberOfSpecialChars("aaAbacBC")

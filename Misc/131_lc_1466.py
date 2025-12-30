@@ -1,9 +1,10 @@
-'''
+"""
 1466. Reorder Routes to Make All Paths Lead to the City Zero
-'''
+"""
 
 from typing import List
 from collections import deque, defaultdict
+
 
 class Solution:
     def minReorder(self, n: int, connections: List[List[int]]) -> int:
@@ -28,9 +29,8 @@ class Solution:
                 for toCity in undirectedGraph.get(fromCity, []):
                     if toCity not in visited:
                         if fromCity not in directedGraph.get(toCity, []):
-                            res+=1
+                            res += 1
                         q.append(toCity)
                         visited.add(toCity)
-                    
-        
+
         return res

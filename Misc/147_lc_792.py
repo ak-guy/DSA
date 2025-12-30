@@ -1,8 +1,8 @@
-'''
+"""
 792. Number of Matching Subsequences
-'''
+"""
 
-'''
+"""
 The solution uses a dictionary to map the first character of each 
 word to lists of words starting with that character. It then iterates 
 through each character in the main string s, and for the current 
@@ -18,7 +18,7 @@ words are subsequences without repeatedly scanning s for each word.
 The solution has an overall time complexity roughly proportional to 
 the sum of lengths of s and all words combined, making it efficient 
 for this problem.
-'''
+"""
 
 from collections import defaultdict
 from typing import List
@@ -30,7 +30,7 @@ class Solution:
         word_map = defaultdict(list)
         for word in words:
             word_map[word[0]].append(word)
-        
+
         for char in s:
             char_word_list = word_map[char]
             word_map[char] = []
@@ -39,5 +39,5 @@ class Solution:
                     count += 1
                 else:
                     word_map[word[1]].append(word[1:])
-        
+
         return count

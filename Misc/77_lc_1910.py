@@ -1,8 +1,9 @@
-'''
+"""
 1910. Remove All Occurrences of a Substring
-'''
+"""
 
 from typing import List
+
 
 # Using KMP algo
 class Solution:
@@ -21,7 +22,7 @@ class Solution:
                 if prev_lps_value == 0:
                     starting_index += 1
                 else:
-                    prev_lps_value = lps[prev_lps_value-1]
+                    prev_lps_value = lps[prev_lps_value - 1]
         return lps
 
     def checkPaternInText(self, text: str, pattern: str):
@@ -29,19 +30,19 @@ class Solution:
         m = len(pattern)
         lps = self.formLPSArray(pattern)
 
-        i = 0 # starting index of text
-        j = 0 # starting index of pattern
+        i = 0  # starting index of text
+        j = 0  # starting index of pattern
 
         while i < n:
             if text[i] == pattern[j]:
                 i += 1
                 j += 1
-            
-            if j == m: # found one solution
-                return i-j
+
+            if j == m:  # found one solution
+                return i - j
             elif i < n and text[i] != pattern[j]:
                 if j != 0:
-                    j = lps[j-1]
+                    j = lps[j - 1]
                 else:
                     i += 1
 
@@ -52,8 +53,8 @@ class Solution:
         while True:
             starting_index = self.checkPaternInText(s, part)
             if starting_index is not None:
-                s = s[:starting_index] + s[starting_index+n:]
+                s = s[:starting_index] + s[starting_index + n :]
             else:
                 break
-        
+
         return s

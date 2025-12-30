@@ -1,8 +1,8 @@
-'''
+"""
 3040. Maximum Number of Operations With the Same Score II
-'''
+"""
 
-'''
+"""
 This solution uses a top-down dynamic programming approach with memoization 
 to find the maximum number of operations performing pairs of deletions from 
 either the start, the end, or one from each end while maintaining the same 
@@ -17,7 +17,8 @@ the first two elements, last two elements, and the first and last elements,
 recursively finding the maximum operations possible for each, and returns the 
 overall maximum. This comprehensive exploration ensures the solution finds the 
 maximum number of operations with the same score.
-'''
+"""
+
 
 class Solution:
     def f(self, start, end, nums, curr_val):
@@ -25,19 +26,19 @@ class Solution:
             return 0
         if self.dp[start][end] != -1:
             return self.dp[start][end]
-            
+
         first_way = 0
-        if nums[start]+nums[start+1] == curr_val:
-            first_way = 1+self.f(start+2, end, nums, curr_val)
+        if nums[start] + nums[start + 1] == curr_val:
+            first_way = 1 + self.f(start + 2, end, nums, curr_val)
 
         second_way = 0
-        if nums[end]+nums[end-1] == curr_val:
-            second_way = 1+self.f(start, end-2, nums, curr_val)
+        if nums[end] + nums[end - 1] == curr_val:
+            second_way = 1 + self.f(start, end - 2, nums, curr_val)
 
         third_way = 0
-        if nums[start]+nums[end] == curr_val:
-            third_way = 1+self.f(start+1, end-1, nums, curr_val)
-        
+        if nums[start] + nums[end] == curr_val:
+            third_way = 1 + self.f(start + 1, end - 1, nums, curr_val)
+
         self.dp[start][end] = max(first_way, second_way, third_way)
         return self.dp[start][end]
 
@@ -46,8 +47,8 @@ class Solution:
 
         self.dp = [[-1 for _ in range(n)] for _ in range(n)]
 
-        first_way = self.f(2,n-1, nums, sum(nums[:2]))+1
-        second_way = self.f(0,n-3, nums, sum(nums[n-2:]))+1
-        third_way = self.f(1,n-2, nums, nums[0] + nums[-1])+1
+        first_way = self.f(2, n - 1, nums, sum(nums[:2])) + 1
+        second_way = self.f(0, n - 3, nums, sum(nums[n - 2 :])) + 1
+        third_way = self.f(1, n - 2, nums, nums[0] + nums[-1]) + 1
 
         return max(first_way, second_way, third_way)

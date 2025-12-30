@@ -1,9 +1,9 @@
-'''
+"""
 1462. Course Schedule IV
-'''
+"""
 
 # Method - 1
-'''
+"""
 This code solves LeetCode problem 1462 "Course Schedule IV" using a 
 graph-based approach with depth-first search (DFS). The solution 
 builds a reverse prerequisite graph where each course points to 
@@ -18,20 +18,28 @@ reachability information. The time complexity is
 O(numCourses² + numCourses * edges) due to running DFS from each 
 course, making it suitable for scenarios where multiple queries 
 need to be answered efficiently about prerequisite relationships.
-'''
+"""
 
 from collections import defaultdict
 from typing import List
+
 
 class Solution:
     def makeGraph(self, nodes: List[List[int]]) -> dict[int, List[int]]:
         graph = defaultdict(list)
         for node in nodes:
             graph[node[1]].append(node[0])
-        
+
         return graph
 
-    def dfs_traversal(self, start_node: int, current_node: int, graph: dict[int, List[int]], visited: List[bool], possible_to_reach: List[List[bool]]):
+    def dfs_traversal(
+        self,
+        start_node: int,
+        current_node: int,
+        graph: dict[int, List[int]],
+        visited: List[bool],
+        possible_to_reach: List[List[bool]],
+    ):
         if visited[current_node]:
             return
 
@@ -41,10 +49,14 @@ class Solution:
             possible_to_reach[start_node][node] = True
             self.dfs_traversal(start_node, node, graph, visited, possible_to_reach)
 
-    def checkIfPrerequisite(self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
+    def checkIfPrerequisite(
+        self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]
+    ) -> List[bool]:
         graph = self.makeGraph(prerequisites)
 
-        possible_to_reach = [[False for _ in range(numCourses)] for _ in range(numCourses)]
+        possible_to_reach = [
+            [False for _ in range(numCourses)] for _ in range(numCourses)
+        ]
         for i in range(numCourses):
             visited = [False for _ in range(numCourses)]
             self.dfs_traversal(i, i, graph, visited, possible_to_reach)
@@ -53,12 +65,14 @@ class Solution:
         for q in queries:
             if possible_to_reach[q[1]][q[0]]:
                 result.append(True)
-            else:result.append(False)
+            else:
+                result.append(False)
 
         return result
 
+
 # # Method - 2 (Using topological sorting)
-'''
+"""
 This solution to LeetCode 1462 uses a topological sort on the course
 prerequisite graph to determine all direct and indirect prerequisites 
 for each course. It builds an indegree array and a graph from the 
@@ -69,16 +83,20 @@ efficiently answers queries by checking if one course appears as a
 prerequisite in the recorded sets of another. This approach allows 
 quick determination of prerequisite relationships for multiple queries 
 after a single traversal.
-'''
+"""
 from collections import deque
+
+
 class Solution:
-    def checkIfPrerequisite(self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
+    def checkIfPrerequisite(
+        self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]
+    ) -> List[bool]:
         indegree = [0 for _ in range(numCourses)]
         graph = defaultdict(list)
         for prerequisite in prerequisites:
             graph[prerequisite[0]].append(prerequisite[1])
             indegree[prerequisite[1]] += 1
-        
+
         dq = deque()
         for ind in range(numCourses):
             if indegree[ind] == 0:
@@ -102,5 +120,5 @@ class Solution:
                 result.append(True)
                 continue
             result.append(False)
-        
+
         return result

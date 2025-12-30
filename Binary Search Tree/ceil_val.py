@@ -1,7 +1,8 @@
-#Function to return the ceil of given number in BST.
+# Function to return the ceil of given number in BST.
+
 
 class Solution:
-    def findCeil(self,root, inp):
+    def findCeil(self, root, inp):
         # code here
         res = -1
         while root:
@@ -10,5 +11,5 @@ class Solution:
                 root = root.left
             else:
                 root = root.right
-                 
+
         return res

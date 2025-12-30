@@ -1,8 +1,8 @@
-'''
+"""
 3143. Maximum Points Inside the Square
-'''
+"""
 
-'''
+"""
 Your solution for the LeetCode problem "3143. Maximum Points Inside the Square" 
 attempts to determine the maximum number of points that can be enclosed in a 
 square based on categorizing points by characters in the string s. It iterates 
@@ -14,7 +14,7 @@ counts how many character mappings have sizes less than this max_range to determ
 the number of points that can fit inside the square. The approach leverages grouping 
 points by character and comparing their size constraints to identify the maximum 
 feasible square that includes the relevant points.
-'''
+"""
 
 from typing import List
 
@@ -33,7 +33,7 @@ class Solution:
             else:
                 max_range = min(max_range, char_to_len_map[s[i]])
                 char_to_len_map[s[i]] = size
-        
+
         result = 0
         for val in char_to_len_map.values():
             if val < max_range:

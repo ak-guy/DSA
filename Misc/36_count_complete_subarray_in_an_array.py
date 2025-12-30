@@ -22,13 +22,12 @@ class Solution:
                     distinct_values_in_window -= 1
                 window_start_index += 1
 
-            res += (i - window_start_index + 1)
+            res += i - window_start_index + 1
         return res
 
     def countCompleteSubarrays(self, nums: list[int]) -> int:
         k = len(set(nums))
         atmost_k_distinct_subarray = self.getDistinctSubarrays(nums, k)
-        atmost_k_minus_1_distinct_subarray = self.getDistinctSubarrays(
-            nums, k-1)
+        atmost_k_minus_1_distinct_subarray = self.getDistinctSubarrays(nums, k - 1)
 
         return atmost_k_distinct_subarray - atmost_k_minus_1_distinct_subarray

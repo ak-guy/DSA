@@ -5,5 +5,5 @@ class Solution:
         for i in range(len(arr)):
             curr = arr[i]
             arr[i] = curr[::-1]
-        
+
         return ".".join(arr)

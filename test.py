@@ -1,6 +1,6 @@
 from collections import defaultdict
-travelData =[['B','A'],['D','C'],['A','F'],['Z', 'D'],['C','B']] # s : d
 
+travelData = [["B", "A"], ["D", "C"], ["A", "F"], ["Z", "D"], ["C", "B"]]  # s : d
 
 
 gp = defaultdict()
@@ -23,6 +23,7 @@ def dfs(gp, startNode):
         count = 1 + dfs(gp, neighbour)
     return count
 
+
 for key in gp.keys():
     totalCount = dfs(gp, key)
     if totalCount == total:
@@ -30,6 +31,8 @@ for key in gp.keys():
 
 
 last = None
+
+
 def getLast(node, gp):
     global last
     if node not in gp:
@@ -39,4 +42,4 @@ def getLast(node, gp):
 
 
 getLast(res, gp)
-print(f'starting city = {res}, last city = {last}')
+print(f"starting city = {res}, last city = {last}")

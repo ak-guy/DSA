@@ -1,4 +1,4 @@
-'''
+"""
 ll = [0] + [5,2,6,3,9,1,7,3,8,4]
 
 curr2_val = 0, temp_nodes_to_traverse = 1
@@ -18,7 +18,8 @@ number_of_nodes_to_traverse = 5, curr1_val = 8, curr2_val == 4, number_of_nodes_
 
 curr2_val = 4, temp_nodes_to_traverse = 6
 number_of_nodes_to_traverse = 6, curr1_val = 4, curr2_val == 3, number_of_nodes_we_were_able_to_traverse = 3
-'''
+"""
+
 from __future__ import annotations
 
 from typing import Optional
@@ -51,13 +52,12 @@ class Solution:
             is_even_length = not number_of_nodes_we_were_able_to_traverse % 2
             # print(f'number_of_nodes_to_traverse = {number_of_nodes_to_traverse}, curr1_val = {curr1.val}, curr2_val == {curr2.val}, number_of_nodes_we_were_able_to_traverse = {number_of_nodes_we_were_able_to_traverse}')
             if is_even_length:
-
-                '''
+                """
                 1. curr1 points to the node just before left of what starting point of nodes which we have to reverse
                 2. curr2 points to the node till which we have to reverse
 
                 reverse -> [curr1.next, curr2]
-                '''
+                """
                 prev = None
                 node_to_left = curr1
                 store_next_pointer = node_to_left.next

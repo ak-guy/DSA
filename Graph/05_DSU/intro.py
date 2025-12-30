@@ -1,13 +1,13 @@
 class DisjointSet:
     def __init__(self, n):
         self.parent = list(range(n + 1))
-        self.size = [1 for _ in range(n+1)]
+        self.size = [1 for _ in range(n + 1)]
 
     def findParent(self, node):
         # if parent of node is node itself
         if node == self.parent[node]:
             return self.parent[node]
-        
+
         self.parent[node] = self.findParent(self.parent[node])
         return self.parent[node]
 

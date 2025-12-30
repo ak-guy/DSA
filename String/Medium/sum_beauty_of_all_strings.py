@@ -14,11 +14,12 @@ class Solution:
                         continue
                     else:
                         least = min(least, char_count[k])
-                res += (most - least)
-                  
+                res += most - least
+
         return res
 
-# Using dictionary   
+
+# Using dictionary
 class Solution:
     def beautySum(self, s):
         n = len(s)
@@ -27,5 +28,5 @@ class Solution:
             char_count = {}
             for j in range(i, n):
                 char_count[s[j]] = 1 + char_count.get(s[j], 0)
-                res += (max(char_count.values()) - min(char_count.values()))
+                res += max(char_count.values()) - min(char_count.values())
         return res

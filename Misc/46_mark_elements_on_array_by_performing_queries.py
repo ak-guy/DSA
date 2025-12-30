@@ -1,5 +1,7 @@
 import heapq
 from typing import List
+
+
 class Solution:
     def unmarkedSumArray(self, nums: List[int], queries: List[List[int]]) -> List[int]:
         modified_nums = [[value, index] for index, value in enumerate(nums)]
@@ -25,7 +27,7 @@ class Solution:
                     total_sum -= nums[index]
                     val -= 1
                 visited.add(index)
-                
+
             # print(visited)
             res.append(total_sum)
         return res

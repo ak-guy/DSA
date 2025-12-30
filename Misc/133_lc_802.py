@@ -1,9 +1,10 @@
-'''
+"""
 802. Find Eventual Safe States
-'''
+"""
 
 from typing import List
 from collections import deque
+
 
 class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
@@ -16,7 +17,7 @@ class Solution:
         for ind in range(n):
             for node in graph[ind]:
                 reversedGraph[node].append(ind)
-            
+
             outdegree[ind] = len(graph[ind])
             if outdegree[ind] == 0:
                 dq.append(ind)
@@ -33,5 +34,5 @@ class Solution:
         for i in range(n):
             if outdegree[i] == 0:
                 res.append(i)
-                
+
         return res

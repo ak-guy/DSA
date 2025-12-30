@@ -5,23 +5,26 @@
 
 arr = [5, 6, 7, 8, 9, 10, 1, 2, 3, 4]
 n = len(arr)
+
+
 def modified_binary_search(arr, n):
-    l, r = 0, n-1
+    l, r = 0, n - 1
     while l < r:
-        m = (l+r) // 2
+        m = (l + r) // 2
         if target == arr[m]:
             return m
-        elif arr[m] <= arr[r]: # from mid to r it is sorted
+        elif arr[m] <= arr[r]:  # from mid to r it is sorted
             if target >= arr[m] and arr[r] >= target:
-                l = m+1
+                l = m + 1
             else:
-                r = m-1
-        else: # from l to mid it is sorted
+                r = m - 1
+        else:  # from l to mid it is sorted
             if target <= arr[m] and arr[l] <= target:
-                r = m-1
+                r = m - 1
             else:
-                l = m+1
+                l = m + 1
     return l if arr[l] == target else -1
+
 
 for i in range(1, 12):
     target = i

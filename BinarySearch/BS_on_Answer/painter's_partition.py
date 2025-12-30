@@ -9,22 +9,24 @@ class Solution:
                 k -= 1
                 rem_search_summ = search_summ
                 rem_search_summ -= arr[i]
-        
+
         return k >= 1
-        
-    def minTime (self, nums, n, k):
+
+    def minTime(self, nums, n, k):
         l, r = max(nums), sum(nums)
         res = 10000000000
         n = len(nums)
 
         while l <= r:
-            mid = (l+r) // 2
-            cond = self.getPossibility(nums, mid, k, n) # assuming this is the max sum we want array to have
+            mid = (l + r) // 2
+            cond = self.getPossibility(
+                nums, mid, k, n
+            )  # assuming this is the max sum we want array to have
 
             if cond:
                 res = min(res, mid)
                 r = mid - 1
             else:
                 l = mid + 1
-            
+
         return res

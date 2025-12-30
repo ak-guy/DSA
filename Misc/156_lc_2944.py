@@ -1,8 +1,8 @@
-'''
+"""
 2944. Minimum Number of Coins for Fruits
-'''
+"""
 
-'''
+"""
 This solution uses a top-down dynamic programming approach with 
 memoization to find the minimum number of coins needed to acquire 
 all fruits given a special offer: buying the i-th fruit allows free 
@@ -17,7 +17,7 @@ the cost of buying the fruit at position 0 plus the minimum cost of
 subsequent purchases, ensuring an optimal strategy. This approach 
 efficiently explores all buying options while leveraging the free 
 fruit offer to minimize total coins spent.
-'''
+"""
 
 
 class Solution:
@@ -26,14 +26,16 @@ class Solution:
         dp = [-1 for _ in range(n)]
 
         def helper(i):
-            if i >= n: return 0
-            if dp[i] != -1: return dp[i]
+            if i >= n:
+                return 0
+            if dp[i] != -1:
+                return dp[i]
 
             min_coins = 1_000_000_007
-            for next_jump in range(i+1, min(n, 2*(i+1)) + 1):
+            for next_jump in range(i + 1, min(n, 2 * (i + 1)) + 1):
                 min_coins = min(min_coins, helper(next_jump))
 
-            dp[i] = prices[i]+min_coins
+            dp[i] = prices[i] + min_coins
             return dp[i]
-        
+
         return helper(0)

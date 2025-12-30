@@ -1,7 +1,10 @@
-'''
+"""
 Sort then apply use Greedy Approach
-'''
+"""
+
 from typing import List
+
+
 class Solution:
     def findMinArrowShots(self, points: List[List[int]]) -> int:
         res = 1

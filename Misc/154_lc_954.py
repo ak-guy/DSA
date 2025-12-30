@@ -1,8 +1,8 @@
-'''
+"""
 958. Check Completeness of a Binary Tree
-'''
+"""
 
-'''
+"""
 This solution determines if a binary tree is complete by first calculating its 
 height recursively, then performing a level-order traversal using a queue. At 
 each level, it ensures that all missing nodes (null children) are explicitly 
@@ -13,7 +13,7 @@ to have the full breadth with placeholders and then checking the order of these
 placeholder nodes against real nodes, the algorithm verifies the completeness 
 condition that every level except possibly the last is fully filled and all nodes 
 are as far left as possible. If no violations are found, it returns true.
-'''
+"""
 
 # Definition for a binary tree node.
 from collections import deque
@@ -25,6 +25,8 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+
 class Solution:
     def getHeight(self, root) -> int:
         if not root:
@@ -33,10 +35,10 @@ class Solution:
 
     def isCompleteTree(self, root: Optional[TreeNode]) -> bool:
         tree_height = self.getHeight(root)
-        
+
         q = deque()
         q.append(root)
-        
+
         prev_node_val = 1
         curr_height = 0
         while q:
@@ -58,7 +60,7 @@ class Solution:
                 elif curr_height < tree_height:
                     new_node = TreeNode(-1)
                     q.append(new_node)
-                
+
                 prev_node_val = curr_root.val
-        
+
         return True

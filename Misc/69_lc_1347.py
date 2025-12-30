@@ -1,8 +1,9 @@
-'''
+"""
 1347. Minimum Number of Steps to Make Two Strings Anagram
-'''
+"""
 
 from collections import Counter
+
 
 class Solution:
     def minSteps(self, s: str, t: str) -> int:

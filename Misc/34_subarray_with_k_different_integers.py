@@ -25,15 +25,24 @@ class Solution:
                     length_of_distinct_numbers_in_subarray_window -= 1
                 sliding_window_starting_index += 1
 
-            res += (ind - sliding_window_starting_index + 1)
+            res += ind - sliding_window_starting_index + 1
         return res
 
     def subarraysWithKDistinct(self, nums: list[int], k: int) -> int:
-        no_of_subarray_having_atmost_k_distinct_integers = self.getatmostKDistinctSubarray(
-            nums, k,
+        no_of_subarray_having_atmost_k_distinct_integers = (
+            self.getatmostKDistinctSubarray(
+                nums,
+                k,
+            )
         )
-        no_of_subarray_having_atmost_k_minus_1_distinct_integers = self.getatmostKDistinctSubarray(
-            nums, k-1,
+        no_of_subarray_having_atmost_k_minus_1_distinct_integers = (
+            self.getatmostKDistinctSubarray(
+                nums,
+                k - 1,
+            )
         )
 
-        return no_of_subarray_having_atmost_k_distinct_integers - no_of_subarray_having_atmost_k_minus_1_distinct_integers
+        return (
+            no_of_subarray_having_atmost_k_distinct_integers
+            - no_of_subarray_having_atmost_k_minus_1_distinct_integers
+        )

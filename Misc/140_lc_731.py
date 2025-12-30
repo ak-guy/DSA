@@ -1,12 +1,12 @@
-'''
+"""
 731. My Calendar II
-'''
+"""
+
 
 class MyCalendarTwo:
-
     def __init__(self):
         self.events = []
-        self.overlappingEvent = [] # will only contain overlapping part of two intervals
+        self.overlappingEvent = []  # will only contain overlapping part of two intervals
 
     def overlapExists(self, overlapping_event, start, end):
         return max(overlapping_event[0], start) < min(overlapping_event[1], end)
@@ -18,10 +18,12 @@ class MyCalendarTwo:
         for overlapping_event in self.overlappingEvent:
             if self.overlapExists(overlapping_event, start, end):
                 return False
-        
+
         for event in self.events:
             if self.overlapExists(event, start, end):
-                self.overlappingEvent.append(self.getOverlappingEvent(event, start, end))
+                self.overlappingEvent.append(
+                    self.getOverlappingEvent(event, start, end)
+                )
 
         self.events.append([start, end])
         return True

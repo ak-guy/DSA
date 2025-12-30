@@ -1,9 +1,12 @@
 # Definition for singly-linked list.
 from typing import Optional
+
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
 
 class Solution:
     def convert_ll_to_array(self, node):
@@ -22,7 +25,7 @@ class Solution:
             new_node = ListNode(arr[ind])
             dummy_head.next = new_node
             dummy_head = new_node
-        
+
         return head
 
     def removeZeroSumSublists(self, head: Optional[ListNode]) -> Optional[ListNode]:
@@ -34,14 +37,14 @@ class Solution:
         test_set = set()
         test_set.add(arr_repr[0])
         res = [arr_repr[0]] if arr_repr[0] != 0 else []
-        for ind in range(1,len(arr_repr)):
+        for ind in range(1, len(arr_repr)):
             if arr_repr[ind] == 0:
                 res = []
                 test_set = set()
                 continue
             if arr_repr[ind] in test_set:
-                poping_ind = len(res)-1
-                while poping_ind >=0 and arr_repr[ind] != res[poping_ind]:
+                poping_ind = len(res) - 1
+                while poping_ind >= 0 and arr_repr[ind] != res[poping_ind]:
                     test_set.remove(res[poping_ind])
                     res.pop()
                     poping_ind -= 1

@@ -1,10 +1,12 @@
 from typing import Optional
 
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
 
 class Solution:
     def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
@@ -28,12 +30,12 @@ class Solution:
             curr1 = curr1.next
             prev = None
 
-            for i in range(k-1):
+            for i in range(k - 1):
                 temp = curr1.next
                 curr1.next = prev
                 prev = curr1
                 curr1 = temp
-            
+
             temp_curr.next.next = curr1.next
             curr1.next = prev
             temp_curr.next = curr1

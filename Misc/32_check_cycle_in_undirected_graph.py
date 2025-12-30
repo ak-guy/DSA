@@ -4,7 +4,9 @@ from typing import List
 
 
 class Solution:
-    def dfs(self, current_node, parent_node, adj: list[list[int]], visited: list[int]) -> int:
+    def dfs(
+        self, current_node, parent_node, adj: list[list[int]], visited: list[int]
+    ) -> int:
         visited[current_node] = 1
 
         for destination_node in adj[current_node]:

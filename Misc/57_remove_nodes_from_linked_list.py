@@ -1,10 +1,12 @@
 from typing import Optional
 
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
 
 # Method 1: using stack and creating a new linked list based on values present in stack
 class Solution1:
@@ -26,7 +28,7 @@ class Solution1:
             dummy = create_node
 
         return res_node.next.next
-    
+
 
 # Method - 2: traversing in reversed ll
 class Solution2:
@@ -59,7 +61,7 @@ class Solution2:
             max_val = max(max_val, prev.val)
             temp_prev = prev
             prev = prev.next
-        
+
         # again reverse
         prev = None
         while newHead:

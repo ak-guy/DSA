@@ -10,11 +10,13 @@ class Solution:
             second = third
 
         return first
-        
+
     def findMinFibonacciNumbers(self, k: int) -> int:
         count = 0
         while k:
-            k -= self.getClosestFibonacciNumber(k) # we will take the closest fibonacci number to k and substract it with k, then use the remaining part of k to repeat the process 
+            k -= self.getClosestFibonacciNumber(
+                k
+            )  # we will take the closest fibonacci number to k and substract it with k, then use the remaining part of k to repeat the process
             count += 1
 
         return count
