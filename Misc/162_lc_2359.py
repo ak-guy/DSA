@@ -1,23 +1,27 @@
 """
 2359. Find Closest Node to Given Two Nodes
 
-This solution identifies the best meeting point by using a recursive DFS to pre-calculate the travel distance 
-from both starting nodes to every other reachable node in the graph, storing these values in two separate 
-dictionaries. Since each node has at most one outgoing edge, the DFS effectively traverses a single path 
-until it hits a dead end (-1) or a cycle. After mapping all reachable distances, the code iterates through 
-every possible node to find those reachable by both node1 and node2, calculating the maximum of the two 
-distances for each. It then returns the node index that minimizes this maximum distance, which represents the 
+This solution identifies the best meeting point by using a recursive DFS to pre-calculate the travel distance
+from both starting nodes to every other reachable node in the graph, storing these values in two separate
+dictionaries. Since each node has at most one outgoing edge, the DFS effectively traverses a single path
+until it hits a dead end (-1) or a cycle. After mapping all reachable distances, the code iterates through
+every possible node to find those reachable by both node1 and node2, calculating the maximum of the two
+distances for each. It then returns the node index that minimizes this maximum distance, which represents the
 point where the "slowest" traveler arrives as quickly as possible.
 """
+
 from collections import defaultdict
 
+
 class Solution:
-    def dfs(self, edges: list[int], node: int, map_dict_node: dict, dist: int) -> list[int]:
+    def dfs(
+        self, edges: list[int], node: int, map_dict_node: dict, dist: int
+    ) -> list[int]:
         if node in map_dict_node or node == -1:
             return
 
         map_dict_node[node] = dist
-        self.dfs(edges, edges[node], map_dict_node, dist+1)
+        self.dfs(edges, edges[node], map_dict_node, dist + 1)
 
     def closestMeetingNode(self, edges: list[int], node1: int, node2: int) -> int:
         map_dict_node_1 = defaultdict(list)
