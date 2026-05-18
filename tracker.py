@@ -86,7 +86,7 @@ def calculate_days_elapsed(revision_date_str):
         else:
             return f"{delta.days} days ago"
     except ValueError:
-        return "Invalid Date Format"
+        return revision_date_str
 
 
 def parse_existing_file():

@@ -1,0 +1,3 @@
+problem_id     problem_name                          could_solve     difficulty     revision_date     remaining_date           similar_problem  
+------------   -----------------------------------   -------------   ------------   ---------------   ----------------------   -----------------
+26             Remove Duplicates from Sorted Array   Yes             Easy           Null              Null                     80, 2615         

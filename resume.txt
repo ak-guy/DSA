@@ -1,0 +1,20 @@
+1. Reduced analytical query runtime by ~30% on a 2.5B-row Snowflake table by optimizing clustering keys and improving 
+micro-partition pruning for region-based filtering workloads.
+
+2. Built scalable SCD Type 2 pipelines in Snowflake for historical tracking of multi-region retail dimensions, 
+enabling accurate point-in-time analytics and reporting.
+
+3. Built incremental ELT pipelines processing 20M+ retail transactions daily into Snowflake analytical models.
+
+"""
+What Interviewers May Ask
+Q. “Why incremental instead of full reload?”
+Good answer: Full reloads become inefficient and expensive at large scale. Incremental processing minimizes compute cost
+and processing time by only handling newly arrived or changed records.
+
+Q. “How did you handle duplicates?”
+Possible answer: We used transaction IDs with deduplication logic in staging and merge-based upserts into fact tables.
+
+Q. “How did you track incremental state?”
+Possible answer:We maintained watermark timestamps / CDC offsets to process only new records in each run
+"""
