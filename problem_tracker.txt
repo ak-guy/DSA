@@ -1,3 +1,4 @@
 problem_id     problem_name                          could_solve     difficulty     revision_date     remaining_date           similar_problem  
 ------------   -----------------------------------   -------------   ------------   ---------------   ----------------------   -----------------
 26             Remove Duplicates from Sorted Array   Yes             Easy           Null              Null                     80, 2615         
+189            Rotate Array                          No              Medium         2026-06-02        In 7 days (Future)       2607             
