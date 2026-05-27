@@ -4,3 +4,4 @@ problem_id     problem_name                          could_solve     difficulty 
 189            Rotate Array                          No              Medium         2026-06-02        In 6 days (Future)       2607                       
 974            Subarray Sums Divisible by K          No              Medium         2026-06-03        In 7 days (Future)       560, 1590, 2364, 2845, 3381
 560            Subarray Sum Equals K                 Yes             Medium         2026-06-03        In 7 days (Future)       523, 713                   
+523            Continuous Subarray Sum               No              Medium         2026-06-03        In 7 days (Future)       2772                       
