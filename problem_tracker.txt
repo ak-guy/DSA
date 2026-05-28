@@ -6,3 +6,4 @@ problem_id     problem_name                          could_solve     difficulty 
 560            Subarray Sum Equals K                 Yes             Medium         2026-06-03        In 6 days (Future)       523, 713                   
 523            Continuous Subarray Sum               No              Medium         2026-06-03        In 6 days (Future)       2772                       
 283            Move Zeroes                           Yes             Easy           Null              Null                     None                       
+88             Merge Sorted Array                    No              Easy           2026-06-04        In 7 days (Future)       986, 2516                  
