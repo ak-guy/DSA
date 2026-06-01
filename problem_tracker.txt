@@ -1,12 +1,13 @@
 problem_id     problem_name                          could_solve     difficulty     revision_date     remaining_date           similar_problem            
 ------------   -----------------------------------   -------------   ------------   ---------------   ----------------------   ---------------------------
 26             Remove Duplicates from Sorted Array   Yes             Easy           Null              Null                     80, 2615                   
-189            Rotate Array                          No              Medium         2026-06-02        In 2 days (Future)       2607                       
-974            Subarray Sums Divisible by K          No              Medium         2026-06-03        In 3 days (Future)       560, 1590, 2364, 2845, 3381
-560            Subarray Sum Equals K                 Yes             Medium         2026-06-03        In 3 days (Future)       523, 713                   
-523            Continuous Subarray Sum               No              Medium         2026-06-03        In 3 days (Future)       2772                       
+189            Rotate Array                          No              Medium         2026-06-02        In 1 day (Tomorrow)      2607                       
+974            Subarray Sums Divisible by K          No              Medium         2026-06-03        In 2 days (Future)       560, 1590, 2364, 2845, 3381
+560            Subarray Sum Equals K                 Yes             Medium         2026-06-03        In 2 days (Future)       523, 713                   
+523            Continuous Subarray Sum               No              Medium         2026-06-03        In 2 days (Future)       2772                       
 283            Move Zeroes                           Yes             Easy           Null              Null                     None                       
-88             Merge Sorted Array                    No              Easy           2026-06-04        In 4 days (Future)       986, 2516                  
-268            Missing Number                        Partial         Easy           2026-06-06        In 6 days (Future)       None                       
+88             Merge Sorted Array                    No              Easy           2026-06-04        In 3 days (Future)       986, 2516                  
+268            Missing Number                        Partial         Easy           2026-06-06        In 5 days (Future)       None                       
 485            Max Consecutive Ones                  Yes             Easy           Null              Null                     None                       
 136            Single Number                         Yes             Easy           Null              Null                     None                       
+12             GFG - Longest Subarray with Sum K     Yes             Medium         Null              Null                     lc-523                     
