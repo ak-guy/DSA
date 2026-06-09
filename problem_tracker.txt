@@ -16,3 +16,4 @@ problem_id     problem_name                          could_solve     difficulty 
 169            Majority Element                      No              Medium         2026-06-11        In 2 days (Future)       229, 2780                  
 53             Maximum Subarray                      No              Medium         2026-06-13        In 4 days (Future)       152, 978, 1749             
 121            Best Time to Buy and Sell Stock       Yes             Easy           Null              Null                     122, 123, 188, 309         
+31             Next Permutation                      No              Medium         2026-06-16        In 7 days (Future)       46, 47, 60                 
