@@ -18,3 +18,4 @@ problem_id     problem_name                          could_solve     difficulty 
 121            Best Time to Buy and Sell Stock       Yes             Easy           Null              Null                     122, 123, 188, 309         
 31             Next Permutation                      No              Medium         2026-06-16        In 5 days (Future)       46, 47, 60                 
 128            Longest Consecutive Sequence          Yes             Medium         Null              Null                     2177, 2274, 2414           
+73             Set Matrix Zeroes                     No              Medium         2026-06-18        In 7 days (Future)       289, 2125                  
