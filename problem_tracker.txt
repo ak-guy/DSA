@@ -1,19 +1,20 @@
 problem_id     problem_name                          could_solve     difficulty     revision_date     remaining_date           similar_problem            
 ------------   -----------------------------------   -------------   ------------   ---------------   ----------------------   ---------------------------
 26             Remove Duplicates from Sorted Array   Yes             Easy           Null              Null                     80, 2615                   
-189            Rotate Array                          No              Medium         2026-06-02        7 days ago               2607                       
-974            Subarray Sums Divisible by K          No              Medium         2026-06-03        6 days ago               560, 1590, 2364, 2845, 3381
-560            Subarray Sum Equals K                 Yes             Medium         2026-06-03        6 days ago               523, 713                   
-523            Continuous Subarray Sum               No              Medium         2026-06-03        6 days ago               2772                       
+189            Rotate Array                          No              Medium         2026-06-02        9 days ago               2607                       
+974            Subarray Sums Divisible by K          No              Medium         2026-06-03        8 days ago               560, 1590, 2364, 2845, 3381
+560            Subarray Sum Equals K                 Yes             Medium         2026-06-03        8 days ago               523, 713                   
+523            Continuous Subarray Sum               No              Medium         2026-06-03        8 days ago               2772                       
 283            Move Zeroes                           Yes             Easy           Null              Null                     None                       
-88             Merge Sorted Array                    No              Easy           2026-06-04        5 days ago               986, 2516                  
-268            Missing Number                        Partial         Easy           2026-06-06        3 days ago               None                       
+88             Merge Sorted Array                    No              Easy           2026-06-04        7 days ago               986, 2516                  
+268            Missing Number                        Partial         Easy           2026-06-06        5 days ago               None                       
 485            Max Consecutive Ones                  Yes             Easy           Null              Null                     None                       
 136            Single Number                         Yes             Easy           Null              Null                     None                       
 12             GFG - Longest Subarray with Sum K     Yes             Medium         Null              Null                     lc-523                     
 1              Two Sum                               Yes             Easy           Null              Null                     167                        
-75             Sort Colors                           Partial         Medium         2026-06-10        In 1 day (Tomorrow)      324                        
-169            Majority Element                      No              Medium         2026-06-11        In 2 days (Future)       229, 2780                  
-53             Maximum Subarray                      No              Medium         2026-06-13        In 4 days (Future)       152, 978, 1749             
+75             Sort Colors                           Partial         Medium         2026-06-10        1 day ago                324                        
+169            Majority Element                      No              Medium         2026-06-11        0 days (Today)           229, 2780                  
+53             Maximum Subarray                      No              Medium         2026-06-13        In 2 days (Future)       152, 978, 1749             
 121            Best Time to Buy and Sell Stock       Yes             Easy           Null              Null                     122, 123, 188, 309         
-31             Next Permutation                      No              Medium         2026-06-16        In 7 days (Future)       46, 47, 60                 
+31             Next Permutation                      No              Medium         2026-06-16        In 5 days (Future)       46, 47, 60                 
+128            Longest Consecutive Sequence          Yes             Medium         Null              Null                     2177, 2274, 2414           
