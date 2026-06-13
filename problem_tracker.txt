@@ -21,4 +21,5 @@ problem_id     problem_name                          could_solve     difficulty 
 73             Set Matrix Zeroes                     No              Medium         2026-06-18        In 5 days (Future)       289, 2125                  
 48             Rotate Image                          No              Medium         2026-06-18        In 5 days (Future)       Null                       
 229            Majority Element II                   No              Medium         2026-06-20        In 7 days (Future)       Null                       
-15              3Sum                                 Partial         Medium         2026-06-20        In 7 days (Future)       16                         
+15             3Sum                                  Partial         Medium         2026-06-20        In 7 days (Future)       16                         
+18              4Sum                                 Yes             Medium         Null              Null                     Null                       
