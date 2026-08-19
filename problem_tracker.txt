@@ -24,3 +24,4 @@ problem_id     problem_name                        could_solve     difficulty   
 15             3Sum                                Partial         Medium         2026-06-20        60 days ago              16                         
 18             4Sum                                Yes             Medium         Null              Null                     Null                       
 25             Count Subarrays with given XOR      Yes             Medium         Null              Null                     Null                       
+35             Search Insert Position              No              Easy           2026-08-26        In 7 days (Future)       None                       
