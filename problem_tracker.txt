@@ -1,28 +1,29 @@
 problem_id     problem_name                                              could_solve     difficulty     revision_date     remaining_date           similar_problem            
 ------------   -------------------------------------------------------   -------------   ------------   ---------------   ----------------------   ---------------------------
-26             Reverse Pairs                                             No              Hard           2026-08-26        In 5 days (Future)       None                       
-189            Rotate Array                                              No              Medium         2026-06-02        80 days ago              2607                       
-974            Subarray Sums Divisible by K                              No              Medium         2026-06-03        79 days ago              560, 1590, 2364, 2845, 3381
-560            Subarray Sum Equals K                                     Yes             Medium         2026-06-03        79 days ago              523, 713                   
-523            Continuous Subarray Sum                                   No              Medium         2026-06-03        79 days ago              2772                       
+26             Reverse Pairs                                             No              Hard           2026-08-26        In 4 days (Future)       None                       
+189            Rotate Array                                              No              Medium         2026-06-02        81 days ago              2607                       
+974            Subarray Sums Divisible by K                              No              Medium         2026-06-03        80 days ago              560, 1590, 2364, 2845, 3381
+560            Subarray Sum Equals K                                     Yes             Medium         2026-06-03        80 days ago              523, 713                   
+523            Continuous Subarray Sum                                   No              Medium         2026-06-03        80 days ago              2772                       
 283            Move Zeroes                                               Yes             Easy           Null              Null                     None                       
-88             Merge Sorted Array                                        No              Easy           2026-06-04        78 days ago              986, 2516                  
-268            Missing Number                                            Partial         Easy           2026-06-06        76 days ago              None                       
+88             Merge Sorted Array                                        No              Easy           2026-06-04        79 days ago              986, 2516                  
+268            Missing Number                                            Partial         Easy           2026-06-06        77 days ago              None                       
 485            Max Consecutive Ones                                      Yes             Easy           Null              Null                     None                       
 136            Single Number                                             Yes             Easy           Null              Null                     None                       
 12             GFG - Longest Subarray with Sum K                         Yes             Medium         Null              Null                     lc-523                     
 1              Two Sum                                                   Yes             Easy           Null              Null                     167                        
-75             Sort Colors                                               Partial         Medium         2026-06-10        72 days ago              324                        
-169            Majority Element                                          No              Medium         2026-06-11        71 days ago              229, 2780                  
-53             Maximum Subarray                                          No              Medium         2026-06-13        69 days ago              152, 978, 1749             
+75             Sort Colors                                               Partial         Medium         2026-06-10        73 days ago              324                        
+169            Majority Element                                          No              Medium         2026-06-11        72 days ago              229, 2780                  
+53             Maximum Subarray                                          No              Medium         2026-06-13        70 days ago              152, 978, 1749             
 121            Best Time to Buy and Sell Stock                           Yes             Easy           Null              Null                     122, 123, 188, 309         
-31             Next Permutation                                          No              Medium         2026-06-16        66 days ago              46, 47, 60                 
+31             Next Permutation                                          No              Medium         2026-06-16        67 days ago              46, 47, 60                 
 128            Longest Consecutive Sequence                              Yes             Medium         Null              Null                     2177, 2274, 2414           
-73             Set Matrix Zeroes                                         No              Medium         2026-06-18        64 days ago              289, 2125                  
-48             Rotate Image                                              No              Medium         2026-06-18        64 days ago              Null                       
-229            Majority Element II                                       No              Medium         2026-06-20        62 days ago              Null                       
-15             3Sum                                                      Partial         Medium         2026-06-20        62 days ago              16                         
+73             Set Matrix Zeroes                                         No              Medium         2026-06-18        65 days ago              289, 2125                  
+48             Rotate Image                                              No              Medium         2026-06-18        65 days ago              Null                       
+229            Majority Element II                                       No              Medium         2026-06-20        63 days ago              Null                       
+15             3Sum                                                      Partial         Medium         2026-06-20        63 days ago              16                         
 18             4Sum                                                      Yes             Medium         Null              Null                     Null                       
 25             Count Subarrays with given XOR                            Yes             Medium         Null              Null                     Null                       
-35             Search Insert Position                                    No              Easy           2026-08-26        In 5 days (Future)       None                       
-34             Find First and Last Position of Element in Sorted Array   Yes             Medium         2026-08-28        In 7 days (Future)       None                       
+35             Search Insert Position                                    No              Easy           2026-08-26        In 4 days (Future)       None                       
+34             Find First and Last Position of Element in Sorted Array   Yes             Medium         2026-08-28        In 6 days (Future)       None                       
+33             Search in Rotated Sorted Array                            Yes             Medium         Null              Null                     None                       
