@@ -14,6 +14,12 @@ shrinks both outer boundaries inward by one step (start += 1 and end -= 1), shav
 duplicate data while safely preserving the core search space. Once this ambiguity is cleared away, 
 the algorithm resumes its standard routine of identifying the normally sorted half and halving 
 the search space, maintaining highly efficient lookup capabilities across almost all inputs.
+
+
+Time Complexity:
+    Average Case: O(log N)
+    Worst Case: O(N) — happens when all elements are identical (e.g., [1, 1, 1, 1, 1] looking for 0), 
+                       forcing the algorithm to shrink linearly.
 '''
 
 class Solution:
@@ -44,4 +50,3 @@ class Solution:
                     end = mid-1
         
         return False
-            
