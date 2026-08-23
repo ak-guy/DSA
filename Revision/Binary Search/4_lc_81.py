@@ -23,12 +23,16 @@ class Solution:
             mid = (start + end) // 2
             left_sorted = nums[start] <= nums[mid]
             _right_sorted = nums[mid] <= nums[end]
+
             if nums[mid] == target:
                 return True
-            elif nums[start] == nums[mid] == nums[end]:
+
+            if nums[start] == nums[mid] == nums[end]:
                 start += 1
                 end -= 1
-            elif left_sorted:
+                continue
+
+            if left_sorted:
                 if nums[start] <= target <= nums[mid]:
                     end = mid-1
                 else:
@@ -40,3 +44,4 @@ class Solution:
                     end = mid-1
         
         return False
+            
