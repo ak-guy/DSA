@@ -16,7 +16,7 @@ converge directly onto the absolute minimum element.
 class Solution:
     def findMin(self, nums: list[int]) -> int:
         start, end = 0, len(nums)-1
-        while start <= end-1:
+        while start < end:
             mid = (start + end) // 2
 
             if nums[mid] > nums[end]:
